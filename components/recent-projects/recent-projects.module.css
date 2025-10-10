@@ -1,0 +1,23 @@
+@media screen and (min-width: 2225px) {
+  .pinContainerWrapper {
+    row-gap: 5rem;
+  }
+}
+
+@media screen and (min-width: 3330px) {
+  .pinContainerWrapper {
+    row-gap: 10rem;
+  }
+}
+@media screen and (min-width: 5000px) {
+  .pinContainerWrapper {
+    padding: 10rem 0;
+    row-gap: 24rem;
+  }
+}
+@media screen and (min-width: 6670px) {
+  .pinContainerWrapper {
+    padding: 20rem 0;
+    row-gap: 36rem;
+  }
+}

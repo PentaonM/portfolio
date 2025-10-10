@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --white-f: #ffffff;
+    --purple: #8670ef;
+    --golden: #fcd966;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply !scroll-smooth border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    @apply active:outline-none;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply text-center text-4xl font-bold max-sm:text-2xl md:text-5xl;
+  }
+
+  .black-gradient {
+    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body {
+  overflow: hidden;
+  cursor: none;
+}
+
+/* ----- Custom Scrollbar Section ----- */
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b9dc3af;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+}
+
+/* ----- Custom Cursor Section ----- */
+
+.cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1000;
+  transform: translate(0, 0);
+  transition: transform 0.15s ease-out;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border: 1px solid white;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 999;
+  transform: translate(0, 0);
+  transition: transform 0.25s ease-out;
+}
+
+@media screen and (max-width: 991px) {
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+}
+
+/* ----- Floating navbar Styles ----- */
+
+.icons-navbar {
+  display: none;
+}
+
+.text-navbar {
+  display: inline;
+}
+
+@media (max-width: 415px) {
+  .icons-navbar {
+    display: inline;
+  }
+
+  .text-navbar {
+    display: none;
+  }
+}
+
+/* ----- Heading, Title and SubTitles Styles ----- */
+
+.section__heading {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+@media screen and (max-width: 1399px) {
+  .section__heading {
+    margin-bottom: 46px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .section__heading {
+    margin-bottom: 36px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .section__heading {
+    width: 100%;
+    margin-bottom: 26px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .section__heading {
+    margin-bottom: 20px;
+  }
+}
+.section__heading--2 .section__title {
+  color: white;
+}
+.section__heading--2 .section__sub-title {
+  color: #fcd966;
+}
+.section__heading--2 .section__sub-title::before,
+.section__heading--2 .section__sub-title::after {
+  background-color: #fcd966;
+}
+
+.section__sub-title {
+  font-family: var(--caveat);
+  color: var(--golden);
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.417;
+  display: inline-block;
+}
+@media screen and (max-width: 991px) {
+  .section__sub-title {
+    margin-bottom: 2px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section__sub-title {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section__sub-title {
+    font-size: 20px;
+  }
+}
+.section__sub-title::before,
+.section__sub-title::after {
+  content: "";
+  background-color: var(--golden);
+  position: absolute;
+  left: calc(0% - 85px);
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 60px;
+  height: 1px;
+  pointer-events: none;
+}
+@media screen and (max-width: 479px) {
+  .section__sub-title::before,
+  .section__sub-title::after {
+    width: 40px;
+    left: calc(0% - 50px);
+  }
+}
+.section__sub-title::after {
+  left: calc(100% + 25px);
+}
+@media screen and (max-width: 479px) {
+  .section__sub-title::after {
+    left: calc(100% + 10px);
+  }
+}
+.section__title {
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+@media screen and (max-width: 1399px) {
+  .section__title {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .section__title {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .section__title {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section__title {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .section__title {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section__title {
+    font-size: 26px;
+  }
+}
+
+.slick-track {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 210px;
+}

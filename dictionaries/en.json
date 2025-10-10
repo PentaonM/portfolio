@@ -1,0 +1,200 @@
+{
+  "NavigationItems": {
+    "About": "About",
+    "Projects": "Projects",
+    "Testimonials": "Testimonials",
+    "Contact": "Contact",
+    "World": "World",
+    "LanguageOptions": "Language Options"
+  },
+
+  "HeroSection": {
+    "title": "Hello There, I'm Fentahun Modawo",
+    "sub-title": "I'm a passionate  full stack web developer & creative web designer based in Jerusalem",
+    "Resume": "Resume",
+    "About Me": "About Me",
+    "My Works": "My Works",
+    "Message": "Message",
+    "LinkedIn": "LinkedIn",
+    "GitHub": "GitHub",
+    "TickerText": {
+      "Text1": "I'm available for new projects.",
+      "Text2": "Let's discuss your next big idea.",
+      "Text3": "Reach out for collaboration opportunities.",
+      "Text4": "Excited to work on innovative projects.",
+      "Text5": "Ready to join a dynamic team.",
+      "Text6": "Open to new job offers.",
+      "Text7": "Available for freelance work.",
+      "Text8": "Let's connect and create magic.",
+      "Text9": "Eager to discuss new roles.",
+      "Text10": "Looking for exciting challenges."
+    }
+  },
+
+  "AboutSection": {
+    "title": "Let's get to know who am I",
+    "sub-title": "I craft responsive, visually stunning interfaces & digital experiences for brands, but before that here's a little about me",
+
+    "GridItems": {
+      "Title1": "I am very creative when it comes to design.",
+      "Title2": "I am an active listener with a collaborative mindset, skilled in empathetic communication, analytical thinking, and conflict resolution, which enables me to understand diverse perspectives and effectively address challenges.",
+      "Title3": "My tech stack",
+      "Description3": "I constantly try to improve",
+      "Title4": "Tech enthusiast with a passion for development.",
+      "Title5": "I'm probably building another Next.js / React / Angular / Vue project",
+      "Description5": "The Inside Scoop",
+      "Title6": "Do you want to start a project together?"
+    }
+  },
+
+  "ExperienceAndEducationSection": {
+    "first-title": "My Education",
+    "second-title": "My Experience",
+
+    "EducationData": {
+      "degree1": "Elementary, Middle & High school",
+      "school1": "yehuda halevi & ORT Spanien",
+      "degree2": "Full stack web development",
+      "school2": "john Bryce",
+      "degree3": "Professional Full Stack Developer",
+      "school3": "Self-taught"
+    },
+
+    "workExperienceData": {
+      "position1": "Digital Marketing",
+      "company1": "Independent",
+      "position2": "Junior Full Stack Web Devloper",
+      "company2": "Malam Team",
+      "coming-soon": "coming soon",
+      "coming-soon-description": "I'm constantly seeking for new challenges and opportunities. Your company could be my next home."
+    }
+  },
+
+  "RecentProjectsSection": {
+    "Title-part-1": "A small selection of my",
+    "Title-part-2": "recent projects",
+
+    "projects": {
+      "projectTitle1": "3D Solar System Planets to Explore",
+      "projectDescription1": "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+
+      "projectTitle2": "Yoom - Video Conferencing App",
+      "projectDescription2": "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+
+      "projectTitle3": "AI Image SaaS - Canva Application",
+      "projectDescription3": "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+
+      "projectTitle4": "Animated Apple Iphone 3D Website",
+      "projectDescription4": "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects.",
+
+      "projectTitle5": "AI Image SaaS - Canva Application",
+      "projectDescription5": "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+
+      "projectTitle6": "Animated Apple Iphone 3D Website",
+      "projectDescription6": "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects."
+    },
+
+    "callToAction": "Check Live Site"
+  },
+
+  "TestimonialSection": {
+    "title": "My colleague's & Client's Testimonial",
+    "subTitle": "Don't just take my word for it, hear what they got to say",
+
+    "testimonials": {
+      "name1": "Selena Brook",
+      "jobTitle1": "Vivaco Group",
+      "testimonial1": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name2": "Nicolas Marko",
+      "jobTitle2": "Chief Officer",
+      "testimonial2": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name3": "Selena Brook",
+      "jobTitle3": "Vivaco Group",
+      "testimonial3": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name4": "Nicolas Marko",
+      "jobTitle4": "Chief Operating Officer",
+      "testimonial4": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name5": "Selena Brook",
+      "jobTitle5": "Vivaco Group",
+      "testimonial5": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name6": "Nicolas Marko",
+      "jobTitle6": "Chief Officer",
+      "testimonial6": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name7": "Selena Brook",
+      "jobTitle7": "Vivaco Group",
+      "testimonial7": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+
+      "name8": "Nicolas Marko",
+      "jobTitle8": "Chief Operating Officer",
+      "testimonial8": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum."
+    }
+  },
+
+  "ContactSection": {
+    "titlePart1": "Ready to take",
+    "titlePart2": "your",
+    "titlePart3": "digital presence to the next level?",
+    "subTitle": "Reach out to me today and let&apos;s discuss how I can help you achieve your goals.",
+
+    "MyInfo": {
+      "title": "Are you ready to take the first step?",
+      "subTitle": "Here are my contact details.",
+      "Phone": "Phone",
+      "Email": "Email"
+    },
+
+    "ContactForm": {
+      "title": "Would you like me to take the first step ?",
+      "subTitle": "make sure to leave you best contact info, and i will take it from there.",
+      "firstName": "First name",
+      "firstNamePlaceholder": "Tyler",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Durden",
+      "email": "Email Address",
+      "phoneNumber": "Phone number ( optional )",
+      "phoneNumberPlaceholder": "+972-50-123-4567",
+      "message": "Your Message",
+      "messagesPlaceholder": "Please make sure to leave your Message here",
+      "submit": "Send Message",
+
+      "formValidation": {
+        "firstNameRequired": "First name is required",
+        "firstNameInvalid": "Invalid first name",
+        "lastNameRequired": "Last name is required",
+        "lastNameInvalid": "Invalid last name",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email address",
+        "phoneNumberInvalid": "Invalid phone number",
+        "messageRequired": "Message is required",
+        "messageInvalid": "Invalid characters in message"
+      },
+
+      "toastMessages": {
+        "successToastTitle": "Message submitted successfully!",
+        "successToastDescription": "Thank you for reaching out to me. I will get back to you as soon as possible.",
+        "errorToastTitle": "error",
+        "errorToastDescription": "An error occurred while submitting the message"
+      }
+    }
+  },
+
+  "FooterSection": {
+    "copyrightPart1": "Copyright",
+    "copyrightPart2": "Fentahun Modawo. All rights reserved."
+  },
+
+  "Manifest": {
+    "name": "Fentahun modawo's Portfolio",
+    "description": "This is my portfolio, i hope you like it."
+  },
+  "NotFoundPage": {
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
+    "title": "Page not found"
+  }
+}

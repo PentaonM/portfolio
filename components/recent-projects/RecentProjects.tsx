@@ -1,0 +1,33 @@
+import React from "react";
+import ProjectCard from "./ProjectCard";
+import { useTranslations } from "next-intl";
+import { useProjectsData } from "@/data/Data";
+import styles from "./recent-projects.module.css";
+
+function RecentProjects({ locale }: { locale: string }) {
+  const projects = useProjectsData();
+  const translations = useTranslations("RecentProjectsSection");
+
+  return (
+    <div className="py-20">
+      <h1 className={`heading ${locale === "en" ? "ltr" : "rtl"}`}>
+        {translations("Title-part-1")}{" "}
+        <span className="text-purple"> {translations("Title-part-2")}</span>
+      </h1>
+      <div
+        className={`${styles.pinContainerWrapper} mt-10 flex flex-wrap items-center justify-center gap-x-16 gap-y-0 p-4 max-lg:gap-y-7 max-md:gap-y-5 max-sm:mt-4`}
+      >
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            locale={locale}
+            callToAction={translations("callToAction")}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default RecentProjects;
