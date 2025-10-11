@@ -2,6 +2,7 @@
 "use server";
 
 import { sendMail, compileWelcomeTemplate } from "@/lib/mail";
+import { getTranslations } from "next-intl/server";
 
 export async function sendEmail(data: {
   firstName: string;
@@ -9,6 +10,7 @@ export async function sendEmail(data: {
   email: string;
   message: string;
   phoneNumber?: unknown;
+  locale?: string;
 }) {
   // Get SMTP settings for user email from environment variables
   const userEmail = process.env.SECONDARY_SMTP_EMAIL;
@@ -22,6 +24,19 @@ export async function sendEmail(data: {
   if (!userEmail || !userPassword || !adminEmail || !adminPassword) {
     throw new Error("SMTP settings are not properly configured");
   }
+
+  // Get translations for the specified locale
+  const translations = await getTranslations({ locale: data.locale || "en" });
+
+  // Import the translation files directly to avoid nested key issues
+  const enTranslations = await import("@/dictionaries/en.json");
+  const heTranslations = await import("@/dictionaries/he.json");
+
+  const localeTranslations =
+    data.locale === "he" ? heTranslations.default : enTranslations.default;
+  const emailTranslations = {
+    EmailTemplate: localeTranslations.EmailTemplate,
+  };
 
   // SMTP settings for user email
   const userSmtpConfig = {
@@ -40,7 +55,12 @@ export async function sendEmail(data: {
     to: userSmtpConfig.email,
     name: "Full stack admin",
     subject: `New Job Application from ${data.firstName} ${data.lastName} has been submitted`,
-    body: compileWelcomeTemplate("Full stack admin", "https://www.google.com/"),
+    body: compileWelcomeTemplate(
+      "Full stack admin",
+      "https://www.google.com/",
+      data.locale || "en",
+      emailTranslations,
+    ),
     smtpConfig: userSmtpConfig,
   });
 
@@ -48,8 +68,13 @@ export async function sendEmail(data: {
   await sendMail({
     to: data.email,
     name: `${data.firstName} ${data.lastName}`,
-    subject: `Thank You for Reaching Out To Me - ${data.firstName} ${data.lastName}!`,
-    body: compileWelcomeTemplate("Full stack admin", "https://www.google.com/"),
+    subject: emailTranslations.EmailTemplate.subject,
+    body: compileWelcomeTemplate(
+      `${data.firstName} ${data.lastName}`,
+      "https://fentahunmodawo.com",
+      data.locale || "en",
+      emailTranslations,
+    ),
     smtpConfig: adminSmtpConfig,
   });
 }

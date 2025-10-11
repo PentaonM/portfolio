@@ -28,29 +28,34 @@ const ProjectCard = memo(function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className="flex h-[25rem] w-[80vw] items-center justify-center sm:w-96 lg:min-h-[32.5rem]"
+      className="flex min-h-[32.5rem] w-[80vw] items-center justify-center sm:w-96"
       key={project.id}
     >
       <PinContainer title={project.title} href={project.link} locale={locale}>
-        <div className="relative mb-10 flex h-[20vh] w-[80vw] items-center justify-center overflow-hidden sm:w-96 lg:max-h-[30vh]">
+        <div className="relative mb-10 flex w-[80vw] items-center justify-center overflow-hidden sm:w-96">
           <div
-            className="relative h-full w-full overflow-hidden lg:rounded-3xl"
+            className="relative w-full overflow-hidden lg:rounded-3xl"
             style={{ backgroundColor: "#13162D" }}
           >
-            <Image
-              src="/bg.svg"
-              alt={`background for ${project.title}`}
-              fill
-              style={{ objectFit: "cover", objectPosition: "center" }}
-              loading="lazy"
-            />
+            <div className="relative w-full overflow-hidden lg:rounded-3xl">
+              <div className="w-full" style={{ aspectRatio: "5 / 4" }} />
+              <Image
+                src="/bg.svg"
+                alt=""
+                aria-hidden
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
           <Image
             src={project.img}
             alt={`cover for ${project.title}`}
-            className="absolute bottom-0 z-10 h-full w-full object-cover lg:rounded-3xl"
+            className="absolute inset-0 z-10 h-full w-full object-cover lg:rounded-3xl"
             fill
-            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 24rem"
             style={{ objectFit: "cover", objectPosition: "center" }}
             loading="lazy"
           />

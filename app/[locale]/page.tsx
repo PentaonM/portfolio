@@ -1,4 +1,8 @@
-import { Toaster } from "@/components/ui/sonner";
+import dynamic from "next/dynamic";
+const Toaster = dynamic(
+  () => import("@/components/ui/sonner").then((m) => m.Toaster),
+  { ssr: false },
+);
 import { setRequestLocale } from "next-intl/server";
 import HeroSection from "@/components/hero/HeroSection";
 import { FloatingNav } from "@/components/ui/floating-navbar";

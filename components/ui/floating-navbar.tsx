@@ -5,9 +5,8 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { memo, useState } from "react";
+import { memo, useState, useCallback } from "react";
 import FloatingNavLangDropdownMenu from "../navbar/FloatingNavLangDropdownMenu";
 
 export const FloatingNav = ({
@@ -46,6 +45,20 @@ export const FloatingNav = ({
     }
   });
 
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent, targetId: string) => {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    },
+    [],
+  );
+
   const MemoizedNavItem = memo(function MemoizedNavItem({
     navItem,
     locale,
@@ -59,40 +72,34 @@ export const FloatingNav = ({
     locale: string;
     LanguageOptions: string;
   }) {
-    return (
-      <>
-        <Link
-          href={navItem.link}
-          className={cn(
-            "relative flex items-center space-x-1 text-neutral-600 hover:text-neutral-500 dark:text-neutral-50 dark:hover:text-neutral-300",
-          )}
-          aria-label={`Navigation item - ${navItem.name}`}
-        >
-          <span className="icons-navbar block !cursor-pointer">
-            {navItem.name === "World" ? (
-              <FloatingNavLangDropdownMenu
-                globeIcon={navItem.icon}
-                locale={locale}
-                LanguageOptions={LanguageOptions}
-              />
-            ) : (
-              navItem.icon
-            )}
-          </span>
+    // Special handling for World (language dropdown)
+    if (navItem.name === "World") {
+      return (
+        <FloatingNavLangDropdownMenu
+          globeIcon={navItem.icon}
+          locale={locale}
+          LanguageOptions={LanguageOptions}
+        />
+      );
+    }
 
-          <span className="text-navbar !cursor-pointer text-sm">
-            {navItem.name === "World" ? (
-              <FloatingNavLangDropdownMenu
-                globeIcon={navItem.icon}
-                locale={locale}
-                LanguageOptions={LanguageOptions}
-              />
-            ) : (
-              navItem.name
-            )}
-          </span>
-        </Link>
-      </>
+    // Regular navigation items
+    return (
+      <button
+        onClick={(e) => handleNavClick(e, navItem.link.replace("#", ""))}
+        className={cn(
+          "relative flex cursor-pointer items-center space-x-1 text-neutral-600 hover:text-neutral-500 dark:text-neutral-50 dark:hover:text-neutral-300",
+        )}
+        aria-label={`Navigation item - ${navItem.name}`}
+      >
+        <span className="icons-navbar block !cursor-pointer">
+          {navItem.icon}
+        </span>
+
+        <span className="text-navbar !cursor-pointer text-sm">
+          {navItem.name}
+        </span>
+      </button>
     );
   });
 

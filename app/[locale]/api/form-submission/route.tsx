@@ -2,7 +2,10 @@ import { z } from "zod";
 import { sendEmail } from "../../_actions/sendMail";
 import { getContactFormSchema } from "@/zodSchemas/contact-form";
 
-export async function POST(request: Request) {
+export async function POST(
+  request: Request,
+  { params }: { params: { locale: string } },
+) {
   try {
     const body: unknown = await request.json();
 
@@ -15,7 +18,13 @@ export async function POST(request: Request) {
       });
     }
 
-    await sendEmail(validatedData.data);
+    // Add locale to the validated data
+    const dataWithLocale = {
+      ...validatedData.data,
+      locale: params.locale,
+    };
+
+    await sendEmail(dataWithLocale);
 
     // Return a success response
     return Response.json({

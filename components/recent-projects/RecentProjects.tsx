@@ -15,7 +15,7 @@ function RecentProjects({ locale }: { locale: string }) {
         <span className="text-purple"> {translations("Title-part-2")}</span>
       </h1>
       <div
-        className={`${styles.pinContainerWrapper} mt-10 flex flex-wrap items-center justify-center gap-x-16 gap-y-0 p-4 max-lg:gap-y-7 max-md:gap-y-5 max-sm:mt-4`}
+        className={`${styles.pinContainerWrapper} mt-10 flex flex-wrap items-center justify-center gap-x-16 gap-y-12 p-4 max-lg:gap-y-10 max-md:gap-y-8 max-sm:mt-4`}
       >
         {projects.map((project) => (
           <ProjectCard

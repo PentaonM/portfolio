@@ -31,6 +31,7 @@ const InfiniteMovingCards = ({
 }) => {
   const [start, setStart] = useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -48,6 +49,21 @@ const InfiniteMovingCards = ({
     }
   }, [direction, speed]);
 
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          setVisible(entry.isIntersecting);
+        }
+      },
+      { rootMargin: "150px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
       ref={containerRef}
@@ -59,7 +75,8 @@ const InfiniteMovingCards = ({
       <ul
         className={cn(
           `${locale === "en" ? "ltr" : "rtl"} flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4`,
-          start && "animate-scroll",
+          start && visible && "animate-scroll",
+          (!visible || !start) && "[animation-play-state:paused]",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
@@ -70,22 +87,22 @@ const InfiniteMovingCards = ({
               `relative max-w-full flex-shrink-0 rounded-2xl border border-b-0 border-slate-700 px-8 py-6 ${locale === "en" ? "ltr" : "rtl"}`,
               cardType === "techStack"
                 ? "w-[120px] md:w-[150px]"
-                : "w-[350px] md:w-[450px]",
+                : "flex min-h-[200px] w-[350px] flex-col justify-between md:w-[450px]",
             )}
             style={{
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
             }}
           >
-            <blockquote>
-              <span className="relative z-20 text-sm font-normal leading-[1.6] text-gray-100">
+            <blockquote className="flex h-full flex-col justify-between">
+              <span className="relative z-20 flex-grow text-sm font-normal leading-[1.6] text-gray-100">
                 {item.testimonial}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center gap-5">
                 <div className="shrink-0">
                   <Image
                     src={item.imgSrc}
-                    alt={item.title ?? "Reviewer Image"}
+                    alt={item.title ? `${item.title} logo` : "Reviewer Image"}
                     width={90}
                     height={90}
                     className="h-[90px] w-[90px] rounded-full sm:h-[65px] sm:w-[65px] md:h-[80px] md:w-[80px]"

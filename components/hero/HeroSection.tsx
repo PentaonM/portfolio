@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroLink from "../HeroLink";
+import ContactHeroLink from "../ContactHeroLink";
 import dynamic from "next/dynamic";
 import { memo, useMemo } from "react";
 import Ripple from "../ui/ripple-effect";
@@ -71,7 +72,7 @@ const HeroSection = memo(function HeroSection({ locale }: { locale: string }) {
 
   const rightLinks = useMemo(
     () => [
-      <HeroLink
+      <ContactHeroLink
         key="contact"
         href="#contact"
         buttonText={translations("Message")}
@@ -79,7 +80,7 @@ const HeroSection = memo(function HeroSection({ locale }: { locale: string }) {
         rightIconSrc={heroLinkArrowPng}
         otherClasses={`${styles.heroLink} hover:text-[var(--purple)] hover:border-[var(--purple)]`}
       />,
-      <HeroLink
+      <ContactHeroLink
         key="linkedin"
         href="https://il.linkedin.com/in/fentahun-modawo-3a23a822b"
         buttonText={translations("LinkedIn")}
@@ -87,7 +88,7 @@ const HeroSection = memo(function HeroSection({ locale }: { locale: string }) {
         rightIconSrc={heroLinkArrowPng}
         otherClasses={`${styles.heroLink} hover:text-[var(--purple)] hover:border-[var(--purple)]`}
       />,
-      <HeroLink
+      <ContactHeroLink
         key="github"
         href="https://github.com/ShadowCraftsmanCoder"
         buttonText={translations("GitHub")}
@@ -126,6 +127,7 @@ const HeroSection = memo(function HeroSection({ locale }: { locale: string }) {
                 src={heroImgPng}
                 width={655}
                 height={781}
+                sizes="(max-width: 640px) 70vw, (max-width: 1024px) 50vw, 33vw"
                 priority
                 alt="Banner Image"
                 className={`z-20 ${styles.heroImage}`}

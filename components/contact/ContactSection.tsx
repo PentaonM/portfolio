@@ -89,10 +89,10 @@ const ContactSection = ({
                     {myInfoTranslationsData["subTitle"]}
                   </p>
                 </div>
-                <div className={styles.contactInfos}>
+                <div className={styles.ctaGrid}>
                   <ContactInfoCard
                     icon={
-                      <MemoizedLucideReactIcons.Phone width={40} height={40} />
+                      <MemoizedLucideReactIcons.Phone width={36} height={36} />
                     }
                     title={myInfoTranslationsData["Phone"] ?? ""}
                     value="+1800 - 800 - 9000"
@@ -101,17 +101,16 @@ const ContactSection = ({
                   />
                   <ContactInfoCard
                     icon={
-                      <MemoizedLucideReactIcons.Mail width={40} height={40} />
+                      <MemoizedLucideReactIcons.Mail width={36} height={36} />
                     }
                     title={myInfoTranslationsData["Email"] ?? ""}
                     value="contact@mydomain.com"
                     link="mailto:contact@mydomain.com"
                     locale={locale}
                   />
-
                   <ContactInfoCard
                     icon={
-                      <MemoizedLucideReactIcons.Phone width={40} height={40} />
+                      <MemoizedLucideReactIcons.Phone width={36} height={36} />
                     }
                     title={myInfoTranslationsData["Phone"] ?? ""}
                     value="+1800 - 800 - 9000"

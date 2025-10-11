@@ -4,7 +4,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
 import MagicButton from "./magic-button";
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { MemoizedLucideReactIcons } from "../common/memoizedIcons/MemoizedLucideReactIcons";
 
 export const BentoGridItem = ({
@@ -59,6 +59,23 @@ export const BentoGridItem = ({
   const GridGlobe = dynamic(() => import("./grid-globe"), { ssr: false });
   const FileTreeDemo = dynamic(() => import("../FileTreeDemo"), { ssr: false });
   const Particles = dynamic(() => import("./particles-effect"), { ssr: false });
+  const [isVisible, setIsVisible] = useState(false);
+  const ioRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ioRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setIsVisible(true);
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const InfiniteMovingCards = dynamic(() => import("./infinite-moving-cards"), {
     ssr: false,
   });
@@ -83,8 +100,8 @@ export const BentoGridItem = ({
       <div
         className={`${id === 1 && "max-lg:h-[730px] max-md:h-[640px]"} ${id === 5 && "max-md:h-[460px] max-sm:h-[590px]"} ${id === 6 && "flex justify-center"} h-full`}
       >
-        <div className="absolute h-full w-full">
-          {id === 1 && (
+        <div className="absolute h-full w-full" ref={ioRef}>
+          {id === 1 && isVisible && (
             <>
               <Particles className="h-full w-full" />
               <GridGlobe locale={locale} />
@@ -116,10 +133,12 @@ export const BentoGridItem = ({
             ) : (
               <Image
                 src={spareImg}
-                alt={spareImg}
+                alt=""
                 width={208}
                 height={96}
                 loading="lazy"
+                decoding="async"
+                aria-hidden
               />
             )}
           </div>

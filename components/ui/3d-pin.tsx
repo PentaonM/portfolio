@@ -33,7 +33,7 @@ const PinContainer = ({
   return (
     <div
       className={cn(
-        "group/pin relative z-50 cursor-pointer",
+        "group/pin relative z-10 cursor-pointer",
         containerClassName,
       )}
       onMouseEnter={onMouseEnter}

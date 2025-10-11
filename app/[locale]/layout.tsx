@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { hasLocale } from "next-intl";
 import { Inter } from "next/font/google";
 import { routing } from "@/i18n/routing";
@@ -8,6 +8,12 @@ import CustomCursor from "@/lib/CustomCursor";
 import { setRequestLocale } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import dynamic from "next/dynamic";
+
+const CustomSentryFeedbackButton = dynamic(
+  () => import("@/components/ui/custom-sentry-feedback-btn"),
+  { ssr: false },
+);
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -75,6 +81,16 @@ export const metadata: Metadata = {
   // manifest: 'https://nextjs.org/manifest.json',
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -104,6 +120,7 @@ export default async function LocaleLayout({
         >
           <SpotlightEffect />
           {children}
+          <CustomSentryFeedbackButton />
         </ThemeProvider>
       </body>
     </html>

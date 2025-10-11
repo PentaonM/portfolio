@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import MagicButton from "./ui/magic-button";
 import Image, { StaticImageData } from "next/image";
 
-interface HeroLinkProps {
+interface ContactHeroLinkProps {
   href: string;
   buttonText: string;
   leftIconSrc: StaticImageData;
@@ -11,7 +11,7 @@ interface HeroLinkProps {
   otherClasses?: string;
 }
 
-const HeroLink: React.FC<HeroLinkProps> = ({
+const ContactHeroLink: React.FC<ContactHeroLinkProps> = ({
   href,
   buttonText,
   leftIconSrc,
@@ -41,9 +41,9 @@ const HeroLink: React.FC<HeroLinkProps> = ({
       displayLeftIcon={true}
       leftIcon={
         <Image
-          src={leftIconSrc}
+          src={rightIconSrc}
           width={24}
-          style={{ height: "auto" }}
+          style={{ height: "auto", transform: "scaleX(-1)" }}
           alt=""
           loading="lazy"
           decoding="async"
@@ -53,7 +53,7 @@ const HeroLink: React.FC<HeroLinkProps> = ({
       displayRightIcon={true}
       rightIcon={
         <Image
-          src={rightIconSrc}
+          src={leftIconSrc}
           width={24}
           style={{ height: "auto" }}
           alt=""
@@ -68,4 +68,4 @@ const HeroLink: React.FC<HeroLinkProps> = ({
   );
 };
 
-export default HeroLink;
+export default ContactHeroLink;

@@ -12,6 +12,12 @@ const CustomCursor = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    const mediaReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const coarsePointer = window.matchMedia("(pointer: coarse)");
+    if (mediaReduced.matches || coarsePointer.matches) {
+      return; // skip cursor on reduced motion or touch devices
+    }
+
     pos.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     mouse.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
@@ -43,7 +49,7 @@ const CustomCursor = () => {
       mouse.current.y = e.clientY;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     animate();
 
     return () => {
