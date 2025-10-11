@@ -39,7 +39,7 @@ const PinContainer = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Link href={href || "/"}>
+      <Link href={href || "/"} target="_blank" rel="noopener noreferrer">
         <div
           style={{
             perspective: "1000px",

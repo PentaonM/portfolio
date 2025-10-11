@@ -75,11 +75,11 @@
     "Title-part-2": "recent projects",
 
     "projects": {
-      "projectTitle1": "3D Solar System Planets to Explore",
-      "projectDescription1": "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+      "projectTitle1": "FinanceFlow - Personal Budget Tracker",
+      "projectDescription1": "A modern, feature-rich personal finance management application built with Next.js 14, featuring internationalization, real-time analytics, and intelligent budget tracking. The application provides comprehensive financial management tools including transaction tracking, budget planning, saving goals, recurring transactions, and smart notifications with multi-language support and responsive design.",
 
-      "projectTitle2": "Yoom - Video Conferencing App",
-      "projectDescription2": "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+      "projectTitle2": "CryptoTracker - Advanced Cryptocurrency Analytics Platform",
+      "projectDescription2": "A modern, comprehensive cryptocurrency tracking and analytics platform built with Next.js 15, TypeScript, and real-time market data integration. Features include real-time market data, portfolio management, smart notifications, multi-language support, and advanced analytics tools for professional crypto traders and investors.",
 
       "projectTitle3": "AI Image SaaS - Canva Application",
       "projectDescription3": "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",

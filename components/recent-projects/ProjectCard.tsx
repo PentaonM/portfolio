@@ -90,7 +90,7 @@ const ProjectCard = memo(function ProjectCard({
                 <Image
                   src={icon}
                   alt={`tech icon ${index + 1}`}
-                  className="p-2"
+                  className="rounded-full p-2"
                   width={100}
                   height={100}
                   loading="lazy"

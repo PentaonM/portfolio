@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Fentahun Modawo — Full‑Stack Developer & Creative Designer
 
-## Getting Started
+Hello there, I'm Fentahun!
 
-First, run the development server:
+A passionate full‑stack web developer and creative designer based in Jerusalem. I build modern, high‑performance, and user‑focused web applications. Explore my portfolio to see projects that blend front‑end creativity with back‑end precision. Don’t hesitate to reach out — we were destined to create great things together!
+
+- **Live site**: `https://fentahunmodawo.com`
+- **Tech focus**: TypeScript, Next.js, Tailwind, UI/UX systems, data viz, 3D/web‑gl, internationalization, email/workflows
+
+---
+
+### Overview
+
+This repository contains my personal portfolio built with Next.js 14 and TypeScript. It showcases selected projects, experience, and a contact workflow with internationalization and a polished, performant UI.
+
+### Features
+
+- **Next.js 14 (App Router)** with server components and route handlers
+- **TypeScript** across the codebase
+- **Internationalization** via `next-intl` with `en` and `he` locales
+- **Design system / UI** built on `tailwindcss`, Radix primitives, and `shadcn/ui`
+- **Motion & 3D** using `framer-motion`, `three`, and `three-globe`
+- **Forms & Validation** with `react-hook-form` and `zod`
+- **Email delivery** via Nodemailer + Handlebars templates
+- **Observability** with Sentry (client, server, and edge configs present)
+- **SEO**: sitemap, robots, manifest, metadata
+
+### Getting Started
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Set up environment
+   Create a `.env.local` at the project root and configure:
+
+```bash
+# Public site URL used in emails and assets
+NEXT_PUBLIC_SITE_URL=https://fentahunmodawo.com
+
+# SMTP credentials (required for contact workflow)
+MAIN_SMTP_EMAIL=your-admin@example.com
+MAIN_SMTP_PASSWORD=your-admin-password
+SECONDARY_SMTP_EMAIL=your-secondary@example.com
+SECONDARY_SMTP_PASSWORD=your-secondary-password
+
+# Optional: Sentry
+SENTRY_AUTH_TOKEN=...
+SENTRY_DSN=...
+```
+
+3. Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Project Structure (high level)
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — App Router, layouts, pages, route handlers, error boundaries
+- `app/[locale]/` — localized routes and UI wiring with `next-intl`
+- `components/` — UI kit, sections (hero, projects, contact, etc.)
+- `data/` — structured project data and assets metadata
+- `lib/` — utilities (mail, templates, helpers)
+- `dictionaries/` — translation JSON files
+- `zodSchemas/` — schema validation for forms
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Commands
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `npm run dev` — start local dev server
+- `npm run build` — production build
+- `npm start` — start production server
+- `npm run lint` — lint the codebase
 
-## Deploy on Vercel
+### Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 14, React 18, TypeScript, App Router
+- Tailwind CSS, Radix UI, `shadcn/ui`
+- Framer Motion, Three.js, three‑globe, Recharts
+- next‑intl, Zod, React Hook Form
+- Nodemailer, Handlebars templates
+- Sentry (client/server/edge)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Deployment
+
+Optimized for platforms that support Next.js (e.g., Vercel). Ensure environment variables are set in your deployment environment.
+
+### Call to Action
+
+If you’re building something ambitious and want it delivered with polish and precision, let’s talk. **Start a project**: `https://fentahunmodawo.com#contact` — I’ll get back to you quickly.
+
+---
+
+Built with care and an eye for detail. Thanks for stopping by.
