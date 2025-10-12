@@ -60,13 +60,7 @@ export function OrbitingCirclesDemo() {
         delay={0}
         reverse
       >
-        <Image
-          src={"/figma.svg"}
-          alt="Figma Logo"
-          width={100}
-          height={100}
-          loading="lazy"
-        />
+        <Icons.figma />
       </OrbitingCircles>
       <OrbitingCircles
         className="size-[50px]"
@@ -139,14 +133,7 @@ export function OrbitingCirclesDemo() {
         duration={60}
         delay={15}
       >
-        <Image
-          src={"/Next.js.svg"}
-          alt="Next.js Logo"
-          width={100}
-          height={100}
-          className="rounded-full bg-white"
-          loading="lazy"
-        />
+        <Icons.nextjs />
       </OrbitingCircles>
       <OrbitingCircles
         className="size-[30px]"
@@ -168,6 +155,52 @@ export function OrbitingCirclesDemo() {
   );
 }
 const Icons = {
+  nextjs: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+      <circle cx="64" cy="64" r="64" fill="white" />
+      <path
+        d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"
+        fill="black"
+      />
+    </svg>
+  ),
+  figma: () => (
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 288 432"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        width="95.0226"
+        height="142.534"
+        fill="black"
+        fill-opacity="0"
+        transform="translate(1.46603 2.19946) scale(3)"
+      ></rect>
+      <path
+        d="M144 216C144 176.641 175.907 144.733 215.267 144.733V144.733C254.626 144.733 286.534 176.641 286.534 216V216C286.534 255.36 254.626 287.267 215.267 287.267V287.267C175.907 287.267 144 255.36 144 216V216Z"
+        fill="#1ABCFE"
+      ></path>
+      <path
+        d="M1.46603 358.534C1.46603 319.175 33.3733 287.267 72.733 287.267H144V358.534C144 397.894 112.093 429.801 72.733 429.801V429.801C33.3733 429.801 1.46603 397.894 1.46603 358.534V358.534Z"
+        fill="#0ACF83"
+      ></path>
+      <path
+        d="M144 2.19946V144.733H215.267C254.627 144.733 286.534 112.826 286.534 73.4664V73.4664C286.534 34.1068 254.627 2.19946 215.267 2.19946L144 2.19946Z"
+        fill="#FF7262"
+      ></path>
+      <path
+        d="M1.46603 73.4664C1.46603 112.826 33.3733 144.733 72.733 144.733L144 144.733L144 2.19941L72.733 2.19941C33.3733 2.19941 1.46603 34.1067 1.46603 73.4664V73.4664Z"
+        fill="#F24E1E"
+      ></path>
+      <path
+        d="M1.46603 216C1.46603 255.36 33.3733 287.267 72.733 287.267H144L144 144.733L72.733 144.733C33.3733 144.733 1.46603 176.641 1.46603 216V216Z"
+        fill="#A259FF"
+      ></path>
+    </svg>
+  ),
   gitHub: () => (
     <svg width="100" height="100" viewBox="0 0 438.549 438.549">
       <path

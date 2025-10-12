@@ -379,6 +379,8 @@ export const skillData = [
   { id: 50, imgSrc: "/angular-js.svg", title: "angular.js", mastery: 60 },
   { id: 51, imgSrc: "/html.svg", title: "html", mastery: 60 },
   { id: 52, imgSrc: "/figma.svg", title: "figma", mastery: 60 },
+  { id: 53, imgSrc: "/docker.svg", title: "docker", mastery: 60 },
+  { id: 54, imgSrc: "/Framer.svg", title: "Framer", mastery: 60 },
 ];
 
 export const socialMedia = [
