@@ -185,6 +185,14 @@ export const useProjectsData = () => {
     },
     {
       id: 2,
+      title: translations("projectTitle3"),
+      des: translations("projectDescription3"),
+      img: "/portfolio-details-3.jpg",
+      iconLists: ["/re.png", "/tail.png", "/ts.png", "/three.png", "/c.png"],
+      link: "/ui.aiimg.com",
+    },
+    {
+      id: 3,
       title: translations("projectTitle2"),
       des: translations("projectDescription2"),
       img: "/crypto-tracker-website.png",
@@ -198,14 +206,6 @@ export const useProjectsData = () => {
         "/Prisma.jpg",
       ],
       link: "https://crypto-tracker-six-gamma.vercel.app/en/landing",
-    },
-    {
-      id: 3,
-      title: translations("projectTitle3"),
-      des: translations("projectDescription3"),
-      img: "/portfolio-details-3.jpg",
-      iconLists: ["/re.png", "/tail.png", "/ts.png", "/three.png", "/c.png"],
-      link: "/ui.aiimg.com",
     },
     {
       id: 4,

@@ -6,10 +6,21 @@
   z-index: 1;
   width: calc(100% + 30px);
   left: -10px;
+  overflow: hidden;
 }
 
 .bannerTicker .sliderTrack {
   overflow: visible;
+  transition: transform 0.3s ease;
+}
+
+.bannerTicker .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.bannerTicker .slick-slide {
+  transition: all 0.3s ease;
 }
 
 .bannerTicker .sliderSlide {
@@ -21,7 +32,7 @@
   padding-left: 52px;
   width: auto !important;
   white-space: nowrap;
-  margin: 0 40px;
+  margin: 0 4px;
 }
 
 @media screen and (max-width: 1560px) {
@@ -33,7 +44,7 @@
 @media screen and (max-width: 1199px) {
   .bannerTicker .sliderSlide {
     font-size: 25px;
-    margin: 0 30px;
+    margin: 0 3px;
   }
 }
 
@@ -45,7 +56,7 @@
 
 @media screen and (max-width: 767px) {
   .bannerTicker .sliderSlide {
-    margin: 0 20px;
+    margin: 0 2px;
   }
 }
 
@@ -57,7 +68,7 @@
 
 @media screen and (max-width: 479px) {
   .bannerTicker .sliderSlide {
-    margin: 0 10px;
+    margin: 0 1px;
     font-size: 18px;
     padding-left: 37px;
   }
@@ -87,6 +98,7 @@
   z-index: 0;
   background-color: #14b8a6;
   color: #ffffff;
+  overflow: hidden;
 }
 
 .bannerTickerReverse .sliderSlide {
@@ -95,4 +107,19 @@
 
 .bannerTickerReverse .sliderSlide::before {
   background-image: url(/banner-vector-2.png);
+}
+
+/* Additional smooth animation improvements */
+.bannerTicker .slick-list {
+  overflow: visible !important;
+}
+
+.bannerTicker .slick-track {
+  will-change: transform;
+}
+
+.bannerTicker .sliderSlide {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
