@@ -1,17 +1,53 @@
-@media screen and (min-width: 2225px) {
+/* Base spacing for mobile */
+.pinContainerWrapper {
+  row-gap: 2rem;
+}
+
+/* Small screens */
+@media screen and (min-width: 640px) {
+  .pinContainerWrapper {
+    row-gap: 3rem;
+  }
+}
+
+/* Medium screens */
+@media screen and (min-width: 768px) {
+  .pinContainerWrapper {
+    row-gap: 4rem;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1024px) {
   .pinContainerWrapper {
     row-gap: 5rem;
   }
 }
 
+/* XL screens */
+@media screen and (min-width: 1280px) {
+  .pinContainerWrapper {
+    row-gap: 6rem;
+  }
+}
+
+/* 2XL screens */
+@media screen and (min-width: 1536px) {
+  .pinContainerWrapper {
+    row-gap: 7rem;
+  }
+}
+
+/* Very large screens */
+@media screen and (min-width: 2225px) {
+  .pinContainerWrapper {
+    row-gap: 8rem;
+  }
+}
+
+/* Ultra large screens */
 @media screen and (min-width: 3330px) {
   .pinContainerWrapper {
     row-gap: 10rem;
-  }
-}
-/* Ensure comfortable spacing at typical desktop widths */
-@media screen and (min-width: 1280px) and (max-width: 1999px) {
-  .pinContainerWrapper {
-    row-gap: 4rem;
   }
 }
