@@ -187,7 +187,7 @@ export const useProjectsData = () => {
       id: 2,
       title: translations("projectTitle3"),
       des: translations("projectDescription3"),
-      img: "/portfolio-details-3.jpg",
+      img: "/neuro-chat-website.png",
       iconLists: [
         "/next.png",
         "/tail.png",
@@ -195,9 +195,10 @@ export const useProjectsData = () => {
         "/ts.png",
         "/c.png",
         "/zod.png",
-        "/three.png",
+        "/OpenAI-white-monoblossom.png",
+        "/convex-logo.png",
       ],
-      link: "/ui.aiimg.com",
+      link: "https://neuro-chat-one.vercel.app/",
     },
     {
       id: 3,

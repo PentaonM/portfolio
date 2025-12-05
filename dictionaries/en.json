@@ -81,8 +81,8 @@
       "projectTitle2": "CryptoTracker - Advanced Cryptocurrency Analytics Platform",
       "projectDescription2": "A modern, comprehensive cryptocurrency tracking and analytics platform built with Next.js 15, TypeScript, and real-time market data integration. Features include real-time market data, portfolio management, smart notifications, multi-language support, and advanced analytics tools for professional crypto traders and investors.",
 
-      "projectTitle3": "AI Image SaaS - Canva Application",
-      "projectDescription3": "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+      "projectTitle3": "Neuro Chat - Real-time Messaging Platform",
+      "projectDescription3": "Modern, full-stack chat application built with Next.js 15, React 19, Convex, and Clerk. Features real-time messaging, groups, pinned/starred messages, reactions, media uploads, group management with roles, and robust authentication with webhook sync. Built with shadcn/ui, Radix UI, and Tailwind CSS 4.",
 
       "projectTitle4": "Snippet Hub - Code Snippet Manager",
       "projectDescription4": "A modern, feature-rich code snippet management application built with Next.js 14, featuring intelligent search, syntax highlighting, version history, sequences, and powerful organization tools. Includes Clerk authentication, MongoDB database, and support for over 100 programming languages with beautiful UI/UX.",
