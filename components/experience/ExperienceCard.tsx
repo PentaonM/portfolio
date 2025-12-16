@@ -58,7 +58,6 @@ export const ExperienceCard = memo(function ExperienceCard({
                 "rounded-[25%]",
                 styles.experiencesAndEducationSkillImage,
                 {
-                  "bg-[#ECCEAE] p-4": item.id === 1 && type === "education",
                   "bg-white p-4": item.id === 3 && type === "education",
                   "bg-[#0F67B1] p-4": item.id === 1 && type === "work",
                 },

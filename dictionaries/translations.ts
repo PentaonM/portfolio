@@ -58,6 +58,7 @@ export const useSectionsTranslations = () => {
     subTitle: myInfoTranslations("subTitle"),
     Phone: myInfoTranslations("Phone"),
     Email: myInfoTranslations("Email"),
+    LinkedIn: myInfoTranslations("LinkedIn"),
   };
 
   const contactFormTranslationsData = {

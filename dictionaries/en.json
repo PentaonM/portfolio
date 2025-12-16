@@ -18,16 +18,16 @@
     "LinkedIn": "LinkedIn",
     "GitHub": "GitHub",
     "TickerText": {
-      "Text1": "I'm available for new projects.",
-      "Text2": "Let's discuss your next big idea.",
-      "Text3": "Reach out for collaboration opportunities.",
-      "Text4": "Excited to work on innovative projects.",
-      "Text5": "Ready to join a dynamic team.",
-      "Text6": "Open to new job offers.",
-      "Text7": "Available for freelance work.",
-      "Text8": "Let's connect and create magic.",
-      "Text9": "Eager to discuss new roles.",
-      "Text10": "Looking for exciting challenges."
+      "Text1": "Frontend-focused Full-Stack Software Engineer open to new roles.",
+      "Text2": "Experienced in building scalable, production-grade web applications.",
+      "Text3": "Strong background in modern JavaScript, TypeScript, and frontend frameworks.",
+      "Text4": "Focused on performance, accessibility, and maintainable UI systems.",
+      "Text5": "Hands-on experience across frontend and backend boundaries.",
+      "Text6": "Comfortable working in large codebases and cross-functional teams.",
+      "Text7": "Passionate about clean architecture, testing, and code quality.",
+      "Text8": "Seeking frontend or full-stack engineering roles at scale.",
+      "Text9": "Available for full-time opportunities.",
+      "Text10": "Looking for exciting challenges and to work on innovative projects."
     }
   },
 
@@ -52,8 +52,8 @@
     "second-title": "My Experience",
 
     "EducationData": {
-      "degree1": "Elementary, Middle & High school",
-      "school1": "yehuda halevi & ORT Spanien",
+      "degree1": "Digital Marketing Architect",
+      "school1": "D-ARCHITECT by HYPERZ DIGITAL",
       "degree2": "Full stack web development",
       "school2": "john Bryce",
       "degree3": "Professional Full Stack Developer",
@@ -63,7 +63,7 @@
     "workExperienceData": {
       "position1": "Digital Marketing",
       "company1": "Independent",
-      "position2": "Junior Full Stack Web Devloper",
+      "position2": "Full Stack Web Devloper",
       "company2": "Malam Team",
       "coming-soon": "coming soon",
       "coming-soon-description": "I'm constantly seeking for new challenges and opportunities. Your company could be my next home."
@@ -98,13 +98,13 @@
   },
 
   "TestimonialSection": {
-    "title": "My colleague's & Client's Testimonial",
+    "title": "My colleague's Testimonial",
     "subTitle": "Don't just take my word for it, hear what they got to say",
 
     "testimonials": {
-      "name1": "Selena Brook",
-      "jobTitle1": "Vivaco Group",
-      "testimonial1": "Duis aute irure dolor in reprehenderit in voluptate velit cillum dolore eu fugiat nulla pariatur. Excepteur sint proident, culpa qui officia deserunt mollit anim id est laborum.",
+      "name1": "Naftali stein",
+      "jobTitle1": "Teacher, entrepreneur and independent business owner",
+      "testimonial1": "After teaching Fentahun, I had the pleasure of witnessing firsthand his exceptional dedication, strong work ethic, and genuine passion for learning. His commitment to personal growth and continuous pursuit of excellence was evident in every project he took part in, consistently demonstrating determination, precision, and a keen attention to detail. I am confident that Fentahun will excel in any professional environment he chooses to join, as his outstanding qualities position him for a bright future as a professional Full Stack Developer. Wishing you continued success!",
 
       "name2": "Nicolas Marko",
       "jobTitle2": "Chief Officer",
@@ -137,28 +137,29 @@
   },
 
   "ContactSection": {
-    "titlePart1": "Ready to take",
-    "titlePart2": "your",
-    "titlePart3": "digital presence to the next level?",
-    "subTitle": "Reach out to me today and let&apos;s discuss how I can help you achieve your goals.",
+    "titlePart1": "Looking for your next",
+    "titlePart2": "frontend-driven",
+    "titlePart3": "full-stack software engineer?",
+    "subTitle": "Let’s connect and see how my experience can support your product, team, and roadmap.",
 
     "MyInfo": {
-      "title": "Are you ready to take the first step?",
-      "subTitle": "Here are my contact details.",
+      "title": "Let’s start the conversation",
+      "subTitle": "You can reach me directly using the details below.",
       "Phone": "Phone",
-      "Email": "Email"
+      "Email": "Email",
+      "LinkedIn": "LinkedIn"
     },
 
     "ContactForm": {
-      "title": "Would you like me to take the first step ?",
-      "subTitle": "make sure to leave you best contact info, and i will take it from there.",
+      "title": "Prefer that I reach out to you?",
+      "subTitle": "Leave your contact details and a short note about the role or team — I’ll take it from here.",
       "firstName": "First name",
-      "firstNamePlaceholder": "Tyler",
+      "firstNamePlaceholder": "John",
       "lastName": "Last name",
-      "lastNamePlaceholder": "Durden",
+      "lastNamePlaceholder": "Doe",
       "email": "Email Address",
       "phoneNumber": "Phone number ( optional )",
-      "phoneNumberPlaceholder": "+972-50-123-4567",
+      "phoneNumberPlaceholder": "+972-054-123-4567",
       "message": "Your Message",
       "messagesPlaceholder": "Please make sure to leave your Message here",
       "submit": "Send Message",

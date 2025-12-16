@@ -44,7 +44,7 @@ const HeroSection = memo(function HeroSection({ locale }: { locale: string }) {
     () => [
       <HeroLink
         key="resume"
-        href="#"
+        href={`/cv/FULL-STACK-WEB-DEVELOPMENT-${locale === "en" ? "ENGLISH" : "HEBREW"}-CV.pdf`}
         buttonText={translations("Resume")}
         leftIconSrc={heroLink2Png}
         rightIconSrc={heroLinkArrowPng}

@@ -12,6 +12,20 @@ const IconRenderer = ({
   img: string;
   altText: string;
 }) => {
+  // If image exists, prioritize showing the image
+  if (img && img.trim() !== "") {
+    return (
+      <Image
+        src={img}
+        width={65}
+        height={65}
+        alt={`logo - ${altText}`}
+        loading="lazy"
+      />
+    );
+  }
+
+  // Fallback to icons when no image is provided
   if (type === "education") {
     if (id === 1)
       return (
@@ -37,15 +51,8 @@ const IconRenderer = ({
     );
   }
 
-  return (
-    <Image
-      src={img}
-      width={65}
-      height={65}
-      alt={`logo - ${altText}`}
-      loading="lazy"
-    />
-  );
+  // Default fallback - return null if no image and no matching icon
+  return null;
 };
 
 export default IconRenderer;

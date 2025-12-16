@@ -9,19 +9,13 @@ const ContactForm = dynamic(() => import("../form/ContactForm"), {
   ssr: false,
 });
 
-const ContactInfoCard = ({
-  icon,
-  title,
-  value,
-  link,
-  locale,
-}: {
+const ContactInfoCard: React.FC<{
   icon: React.ReactNode;
   title: string;
   value: string;
   link: string;
   locale: string;
-}) => (
+}> = ({ icon, title, value, link, locale }) => (
   <div className={`${styles.contactInfo} ${locale === "en" ? "ltr" : "rtl"}`}>
     <div className={styles.contactInfoIcon}>{icon}</div>
     <div className={styles.contactInfoTxt}>
@@ -76,15 +70,15 @@ const ContactSection = ({
           {/* Contact Info Section */}
           <div className="mx-auto w-full max-w-[40rem] p-4 md:px-8 md:py-0 lg:w-1/2">
             <ClientOnlyBackgroundWrapper className="w-full rounded-[22px] bg-white p-4 dark:bg-black-100 sm:p-10">
-              <div className="contact__txt h-full rounded-2xl bg-white shadow-input dark:bg-black sm:p-4">
-                <div className="section__heading w-full text-left">
+              <div className="contact__txt h-full rounded-2xl bg-white shadow-input dark:bg-black sm:p-3">
+                <div className="section__heading w-full text-left md:px-4 md:pb-1 md:pt-4">
                   <h3
                     className={`${locale === "en" ? "ltr" : "rtl"} flex justify-center text-xl font-bold text-neutral-800 dark:text-neutral-200`}
                   >
                     {myInfoTranslationsData["title"]}
                   </h3>
                   <p
-                    className={`${locale === "en" ? "ltr" : "rtl"} mt-2 flex w-full items-center justify-center text-sm text-neutral-600 dark:text-neutral-300`}
+                    className={`${locale === "en" ? "ltr" : "rtl"} mt-1.5 flex w-full items-center justify-center text-sm text-neutral-600 dark:text-neutral-300`}
                   >
                     {myInfoTranslationsData["subTitle"]}
                   </p>
@@ -92,29 +86,29 @@ const ContactSection = ({
                 <div className={styles.ctaGrid}>
                   <ContactInfoCard
                     icon={
-                      <MemoizedLucideReactIcons.Phone width={36} height={36} />
+                      <MemoizedLucideReactIcons.Phone width={20} height={20} />
                     }
                     title={myInfoTranslationsData["Phone"] ?? ""}
-                    value="+1800 - 800 - 9000"
-                    link="tel:+18008009000"
+                    value="+972-058-668-6806"
+                    link="tel:+972-058-668-6806"
                     locale={locale}
                   />
                   <ContactInfoCard
                     icon={
-                      <MemoizedLucideReactIcons.Mail width={36} height={36} />
+                      <MemoizedLucideReactIcons.Mail width={20} height={20} />
                     }
                     title={myInfoTranslationsData["Email"] ?? ""}
-                    value="contact@mydomain.com"
-                    link="mailto:contact@mydomain.com"
+                    value="pentaonprivatepc@gmail.com"
+                    link="mailto:pentaonprivatepc@gmail.com"
                     locale={locale}
                   />
                   <ContactInfoCard
                     icon={
-                      <MemoizedLucideReactIcons.Phone width={36} height={36} />
+                      <MemoizedLucideReactIcons.Globe width={20} height={20} />
                     }
-                    title={myInfoTranslationsData["Phone"] ?? ""}
-                    value="+1800 - 800 - 9000"
-                    link="tel:+18008009000"
+                    title={myInfoTranslationsData["LinkedIn"] ?? ""}
+                    value="LinkedIn Profile"
+                    link="https://il.linkedin.com/in/fentahun-modawo-3a23a822b"
                     locale={locale}
                   />
                 </div>

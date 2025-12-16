@@ -233,22 +233,22 @@ export const useProjectsData = () => {
       ],
       link: "https://snippet-hub-tau.vercel.app/",
     },
-    {
-      id: 5,
-      title: translations("projectTitle5"),
-      des: translations("projectDescription5"),
-      img: "/portfolio-details-3.jpg",
-      iconLists: [
-        "/next.png",
-        "/tail.png",
-        "/shadcn.jpg",
-        "/ts.png",
-        "/c.png",
-        "/zod.png",
-        "/three.png",
-      ],
-      link: "/ui.aiimg.com",
-    },
+    // {
+    //   id: 5,
+    //   title: translations("projectTitle5"),
+    //   des: translations("projectDescription5"),
+    //   img: "/portfolio-details-3.jpg",
+    //   iconLists: [
+    //     "/next.png",
+    //     "/tail.png",
+    //     "/shadcn.jpg",
+    //     "/ts.png",
+    //     "/c.png",
+    //     "/zod.png",
+    //     "/three.png",
+    //   ],
+    //   link: "/ui.aiimg.com",
+    // },
     // {
     //   id: 6,
     //   title: translations("projectTitle6"),
@@ -274,10 +274,10 @@ export const useEducationData = () => {
   return [
     {
       id: 1,
-      timespan: "2005 - 2017",
+      timespan: "2020 - 2022",
       degree: translations("degree1"),
       school: translations("school1"),
-      img: "",
+      img: "/hyperz-digital.jpg",
     },
     {
       id: 2,
