@@ -10,7 +10,7 @@
 
   "HeroSection": {
     "title": "Hello There, I'm Fentahun Modawo",
-    "sub-title": "I'm a passionate  full stack web developer & creative web designer based in Jerusalem",
+    "sub-title": "I'm a frontend-focused full-stack web developer based in Jerusalem",
     "Resume": "Resume",
     "About Me": "About Me",
     "My Works": "My Works",
@@ -32,8 +32,8 @@
   },
 
   "AboutSection": {
-    "title": "Let's get to know who am I",
-    "sub-title": "I craft responsive, visually stunning interfaces & digital experiences for brands, but before that here's a little about me",
+    "title": "Let’s get to know each other",
+    "sub-title": "I craft responsive, visually polished interfaces and digital experiences - but first, here’s a bit about me.",
 
     "GridItems": {
       "Title1": "I am very creative when it comes to design.",
@@ -52,18 +52,18 @@
     "second-title": "My Experience",
 
     "EducationData": {
-      "degree1": "Digital Marketing Architect",
-      "school1": "D-ARCHITECT by HYPERZ DIGITAL",
-      "degree2": "Full stack web development",
-      "school2": "john Bryce",
-      "degree3": "Professional Full Stack Developer",
+      "degree1": "Digital Marketing (D-ARCHITECT)",
+      "school1": "Academy 2100 + Hyperz (D-ARCHITECT)",
+      "degree2": "Full-Stack Web Development",
+      "school2": "John Bryce",
+      "degree3": "Ongoing self-directed learning",
       "school3": "Self-taught"
     },
 
     "workExperienceData": {
-      "position1": "Digital Marketing",
+      "position1": "Digital Marketing Specialist",
       "company1": "Independent",
-      "position2": "Full Stack Web Devloper",
+      "position2": "Full-Stack Web Developer",
       "company2": "Malam Team",
       "coming-soon": "coming soon",
       "coming-soon-description": "I'm constantly seeking for new challenges and opportunities. Your company could be my next home."
@@ -194,6 +194,7 @@
     "name": "Fentahun modawo's Portfolio",
     "description": "This is my portfolio, i hope you like it."
   },
+  
   "NotFoundPage": {
     "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
     "title": "Page not found"

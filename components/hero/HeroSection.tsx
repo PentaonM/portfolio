@@ -1,11 +1,11 @@
 import Image from "next/image";
 import HeroLink from "../HeroLink";
-import ContactHeroLink from "../ContactHeroLink";
 import dynamic from "next/dynamic";
 import { memo, useMemo } from "react";
 import Ripple from "../ui/ripple-effect";
 import { useTranslations } from "next-intl";
 import styles from "./hero-section.module.css";
+import ContactHeroLink from "../ContactHeroLink";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 
 import heroLink5Png from "@/public/linkedIn.png";
@@ -110,6 +110,7 @@ const HeroSection = memo(function HeroSection({ locale }: { locale: string }) {
             </h1>
             <TextGenerateEffect
               words={translations("sub-title")}
+              locale={locale}
               className={`${locale === "en" ? "ltr" : "rtl"} text-center text-[32px] md:text-5xl lg:text-6xl`}
             />
           </div>
