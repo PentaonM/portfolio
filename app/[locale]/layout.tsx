@@ -1,14 +1,14 @@
 import "./globals.css";
-import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import { hasLocale } from "next-intl";
 import { Inter } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import CustomCursor from "@/lib/CustomCursor";
+import type { Metadata, Viewport } from "next";
 import { setRequestLocale } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import dynamic from "next/dynamic";
 
 const CustomSentryFeedbackButton = dynamic(
   () => import("@/components/ui/custom-sentry-feedback-btn"),
