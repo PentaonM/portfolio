@@ -158,10 +158,10 @@ export const welcomeTemplate = `
                                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
                                                                 <div class="alignment" align="center" style="line-height:10px">
                                                                     <div style="font-size: 32px; font-weight: 700; color: #ffffff; text-align: center;">
-                                                                        {{signature.name}}
+                                                                        Fentahun Modawo
                                                                     </div>
                                                                     <div style="font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 16px;">
-                                                                        {{signature.title}}
+                                                                        Full Stack Web Developer & Creative Web Designer
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -172,22 +172,8 @@ export const welcomeTemplate = `
                                                     <table class="image_block block-2" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                         <tr>
                                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                                <div class="alignment" align="top" style="line-height:10px">
-                                                                    <img src="{{profileImageUrl}}" 
-                                                                        width="180" 
-                                                                        height="180" 
-                                                                        alt="{{signature.name}}" 
-                                                                        title="{{signature.name}}" 
-                                                                        style="display:block;
-                                                                                border:0;
-                                                                                width:180px;
-                                                                                height:180px;
-                                                                                max-width:180px;
-                                                                                border-radius:9999px;
-                                                                                object-fit:cover;
-                                                                                object-position:top;
-                                                                                box-shadow:0 8px 32px rgba(0,0,0,0.3);
-                                                                                background:#667eea;">
+                                                                <div class="alignment" align="center" style="line-height:10px">
+                                                                    <img src="{{profileImageUrl}}" width="180" height="180" alt="Fentahun Modawo" title="Fentahun Modawo" style="display:block;border:0;width:180px;height:180px;max-width:180px;border-radius:9999px;object-fit:cover;object-position:top;box-shadow:0 8px 32px rgba(0,0,0,0.3);background:#667eea;">
                                                                 </div>
                                                             </td>
                                                         </tr>
