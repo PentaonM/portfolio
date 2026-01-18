@@ -2,6 +2,8 @@
 import nodemailer from "nodemailer";
 import { welcomeTemplate } from "./mail-templates/welcome";
 
+const SITE_URL_FALLBACK = "https://portfolio-lime-ten-w11xgq4wcc.vercel.app";
+
 function normalizeBaseUrl(input: string) {
   return input.replace(/\/+$/, "");
 }
@@ -67,23 +69,31 @@ export function compileWelcomeTemplate(
   const emailTranslations = translations?.EmailTemplate || {};
 
   const baseUrl = normalizeBaseUrl(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://fentahunmodawo.com",
+    process.env.NEXT_PUBLIC_SITE_URL ?? SITE_URL_FALLBACK,
   );
 
-  // Must be absolute for email clients, and NOT locale-prefixed.
-  const profileImageUrl = `${baseUrl}/${locale}/profile-v2-3.png`;
-
   const safeLocale = locale === "he" ? "he" : "en";
-  const cvUrl = `${baseUrl}/${locale}/cv/FULL-STACK-WEB-DEVELOPMENT-${
+
+  // Must be absolute for email clients, and NOT locale-prefixed.
+  // This matches the admin template image.
+  const profileImageUrl = `${baseUrl}/profile-v2-3.png`;
+
+  const cvUrl = `${baseUrl}/cv/FULL-STACK-WEB-DEVELOPMENT-${
     safeLocale === "he" ? "HEBREW" : "ENGLISH"
   }-CV.pdf`;
 
   const cvLabel =
     safeLocale === "he" ? "להורדת קורות החיים (PDF)" : "Download CV (PDF)";
 
+  const dir = safeLocale === "he" ? "rtl" : "ltr";
+  const textAlign = safeLocale === "he" ? "right" : "left";
+
   const values: Record<string, string> = {
     name,
     url,
+    lang: safeLocale,
+    dir,
+    textAlign,
     profileImageUrl,
     greeting:
       emailTranslations.greeting?.replace("{{name}}", name) || `Hi ${name}`,
@@ -140,15 +150,12 @@ export function compileAdminSubmissionTemplate(input: {
   message: string;
 }) {
   const baseUrl = normalizeBaseUrl(
-    input.baseUrl ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://fentahunmodawo.com",
+    input.baseUrl ?? process.env.NEXT_PUBLIC_SITE_URL ?? SITE_URL_FALLBACK,
   );
   const safeLocale = input.locale === "he" ? "he" : "en";
-  const siteUrl = `${baseUrl}/${safeLocale}`;
   const profileImageUrl = `${baseUrl}/profile-v2-3.png`;
-
-  const cvUrl = `${baseUrl}/cv/FULL-STACK-WEB-DEVELOPMENT-${
-    safeLocale === "he" ? "HEBREW" : "ENGLISH"
-  }-CV.pdf`;
+  const dir = safeLocale === "he" ? "rtl" : "ltr";
+  const textAlign = safeLocale === "he" ? "right" : "left";
 
   const fullName = `${input.firstName} ${input.lastName}`.trim();
   const phoneRaw =
@@ -171,18 +178,16 @@ export function compileAdminSubmissionTemplate(input: {
   const labelPhone = safeLocale === "he" ? "טלפון" : "Phone";
   const labelLocale = safeLocale === "he" ? "שפה" : "Locale";
   const labelMessage = safeLocale === "he" ? "הודעה" : "Message";
-  const viewSite = safeLocale === "he" ? "פתח אתר" : "Open site";
-  const viewCv = safeLocale === "he" ? "הורד קו״ח (PDF)" : "Download CV (PDF)";
 
   return `
 <!doctype html>
-<html lang="${safeLocale}">
+<html lang="${safeLocale}" dir="${dir}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${title}</title>
   </head>
-  <body style="margin:0;padding:0;background:#0f0f23;color:#ffffff;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <body style="margin:0;padding:0;background:#0f0f23;color:#ffffff;font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;direction:${dir};text-align:${textAlign};">
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#0f0f23;padding:24px 12px;">
       <tr>
         <td align="center">
@@ -234,11 +239,6 @@ export function compileAdminSubmissionTemplate(input: {
                 <div style="margin-top:18px;padding:14px 14px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">
                   <div style="font-size:13px;color:rgba(255,255,255,.75);margin-bottom:8px;">${labelMessage}</div>
                   <div style="font-size:14px;line-height:1.55;white-space:normal;">${messageHtml}</div>
-                </div>
-
-                <div style="margin-top:18px;">
-                  <a href="${siteUrl}" target="_blank" style="display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#ffffff;text-decoration:none;font-weight:700;font-size:13px;margin-right:10px;">${viewSite}</a>
-                  <a href="${cvUrl}" target="_blank" style="display:inline-block;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.22);color:#ffffff;text-decoration:none;font-weight:700;font-size:13px;">${viewCv}</a>
                 </div>
               </td>
             </tr>

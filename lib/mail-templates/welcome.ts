@@ -1,6 +1,6 @@
 export const welcomeTemplate = `
 <!DOCTYPE html>
-<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="{{lang}}" dir="{{dir}}">
 <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -16,6 +16,8 @@ export const welcomeTemplate = `
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
+            direction: {{dir}};
+            text-align: {{textAlign}};
         }
 
         a[x-apple-data-detectors] {
@@ -136,7 +138,7 @@ export const welcomeTemplate = `
     </style>
 </head>
 
-<body style="margin: 0; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+<body style="margin: 0; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none; direction: {{dir}}; text-align: {{textAlign}};">
     <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);">
         <tbody>
             <tr>
