@@ -18,11 +18,12 @@ export async function sendEmail(data: {
   const locale = data.locale === "he" ? "he" : "en";
 
   // SMTP settings
-  const autoReplyEmail = process.env.SECONDARY_SMTP_EMAIL;
-  const autoReplyPassword = process.env.SECONDARY_SMTP_PASSWORD;
+  const autoReplyEmail = process.env.MAIN_SMTP_EMAIL;
+  const autoReplyPassword = process.env.MAIN_SMTP_PASSWORD;
 
-  const adminEmail = process.env.MAIN_SMTP_EMAIL;
-  const adminPassword = process.env.MAIN_SMTP_PASSWORD;
+  const adminEmail = process.env.SECONDARY_SMTP_EMAIL;
+  const adminPassword = process.env.SECONDARY_SMTP_PASSWORD;
+
 
   if (
     !autoReplyEmail ||

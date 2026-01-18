@@ -173,7 +173,7 @@ export const welcomeTemplate = `
                                                         <tr>
                                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
                                                                 <div class="alignment" align="center" style="line-height:10px">
-                                                                    <img src="{{profileImageUrl}}" style="display: block; height: auto; border: 0; max-width: 200px; width: 100%; border-radius: 50%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);" width="200" alt="Fentahun Modawo" title="Fentahun Modawo" onerror="this.src='https://via.placeholder.com/200x200/667eea/ffffff?text=FM';">
+                                                                    <img src="{{profileImageUrl}}" width="180" height="180" alt="Fentahun Modawo" title="Fentahun Modawo" style="display:block;border:0;width:180px;height:180px;max-width:180px;border-radius:9999px;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,0.3);background:#667eea;">
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -183,7 +183,7 @@ export const welcomeTemplate = `
                                                     <table class="heading_block block-3" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                         <tr>
                                                             <td class="pad">
-                                                                <h1 style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 36px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
+                                                                <h1 style="margin: 0; color: #ffffff; direction: {{dir}}; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 36px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
                                                                     {{greeting}}
                                                                 </h1>
                                                             </td>
@@ -212,7 +212,7 @@ export const welcomeTemplate = `
                                                     <table class="heading_block block-1" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                         <tr>
                                                             <td class="pad">
-                                                                <h2 style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
+                                                                <h2 style="margin: 0; color: #ffffff; direction: {{dir}}; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
                                                                     {{title}}
                                                                 </h2>
                                                             </td>
@@ -245,119 +245,34 @@ export const welcomeTemplate = `
                                                         </tr>
                                                     </table>
 
-                                                    <!-- CTA Button -->
+                                                    <!-- CTA Buttons -->
                                                     <table class="button_block block-4" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                         <tr>
                                                             <td class="pad">
-                                                                <div class="alignment" align="center">
-                                                                    <a href="{{ctaUrl}}" target="_blank" class="btn-primary" style="text-decoration:none;display:inline-block;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:8px;width:auto;border-top:0px solid transparent;font-weight:600;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:12px;padding-bottom:12px;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;color: #ffffff;">
-                                                                        <span style="padding-left:24px;padding-right:24px;font-size:16px;display:inline-block;letter-spacing:normal;">
-                                                                            <span style="word-break: break-word; line-height: 32px;">{{cta}}</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    {{cvButton}}
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- Footer Section -->
-                    <table class="row row-3" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: rgba(255, 255, 255, 0.03);">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #ffffff; width: 640px; margin: 0 auto;" width="640">
-                                        <tbody>
-                                            <tr>
-                                                <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 40px; padding-top: 40px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
-                                                    
-                                                    <!-- Footer Title -->
-                                                    <table class="heading_block block-1" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                        <tr>
-                                                            <td class="pad">
-                                                                <h3 style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">
-                                                                    {{footer.title}}
-                                                                </h3>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <!-- Footer Subtitle -->
-                                                    <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
-                                                        <tr>
-                                                            <td class="pad" style="padding-left:20px;padding-right:20px;padding-top:10px;">
-                                                                <div style="color:#ffffff;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:16px;line-height:140%;text-align:center;mso-line-height-alt:22.4px;">
-                                                                    <p style="margin: 0; word-break: break-word; color: rgba(255,255,255,0.8);">
-                                                                        {{footer.subtitle}}
-                                                                    </p>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <!-- Social Links -->
-                                                    <table class="social_block block-3" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                        <tr>
-                                                            <td class="pad" style="text-align:center;padding-right:0px;padding-left:0px;">
-                                                                <div class="alignment" align="center">
-                                                                    <div style="margin-bottom: 20px; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500;">
-                                                                        {{footer.social}}
-                                                                    </div>
-                                                                    <table class="social-table" width="200px" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;">
-                                                                        <tr>
-                                                                            <td style="padding:0 8px 0 8px;">
-                                                                                <a href="https://linkedin.com/in/fentahun-modawo-3a23a822b" target="_blank" style="color: #ffffff; text-decoration: none; padding: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: inline-block; transition: all 0.3s ease;">
-                                                                                    LinkedIn
-                                                                                </a>
-                                                                            </td>
-                                                                            <td style="padding:0 8px 0 8px;">
-                                                                                <a href="https://github.com/ShadowCraftsmanCoder" target="_blank" style="color: #ffffff; text-decoration: none; padding: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: inline-block; transition: all 0.3s ease;">
-                                                                                    GitHub
-                                                                                </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <!-- Signature -->
-                                                    <table class="paragraph_block block-4" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
-                                                        <tr>
-                                                            <td class="pad">
-                                                                <div style="color:#ffffff;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:16px;line-height:140%;text-align:center;mso-line-height-alt:22.4px;">
-                                                                    <p style="margin: 0; word-break: break-word; color: rgba(255,255,255,0.9); font-weight: 600;">
-                                                                        {{signature.name}}
-                                                                    </p>
-                                                                    <p style="margin: 8px 0 0 0; word-break: break-word; color: rgba(255,255,255,0.7); font-size: 14px;">
-                                                                        {{signature.title}}
-                                                                    </p>
-                                                                    <p style="margin: 4px 0 0 0; word-break: break-word; color: rgba(255,255,255,0.6); font-size: 12px;">
-                                                                        {{signature.location}}
-                                                                    </p>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
-                                                    <!-- Unsubscribe -->
-                                                    <table class="paragraph_block block-5" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
-                                                        <tr>
-                                                            <td class="pad">
-                                                                <div style="color:#ffffff;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:12px;line-height:140%;text-align:center;mso-line-height-alt:16.8px;">
-                                                                    <p style="margin: 0; word-break: break-word; color: rgba(255,255,255,0.5);">
-                                                                        {{footer.unsubscribe}}
-                                                                    </p>
-                                                                </div>
+                                                                <table dir="{{dir}}" cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin:0 auto;border-collapse:separate;border-spacing:10px 0;">
+                                                                    <tr>
+                                                                        <!-- Right (in RTL): CV -->
+                                                                        <td align="center" valign="middle">
+                                                                            <a href="{{cvUrl}}" target="_blank" style="text-decoration:none;display:inline-block;background: rgba(255,255,255,0.18);border-radius:8px;width:auto;border:1px solid rgba(255,255,255,0.28);padding:12px 18px;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:14px;font-weight:700;text-align:center;word-break:keep-all;color:#ffffff;">
+                                                                                {{cvLabel}}
+                                                                            </a>
+                                                                        </td>
+                                                                        <!-- Middle: Portfolio (keep current style) -->
+                                                                        <td align="center" valign="middle">
+                                                                            <a href="{{portfolioUrl}}" target="_blank" class="btn-primary" style="text-decoration:none;display:inline-block;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:8px;width:auto;border-top:0px solid transparent;font-weight:700;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:12px;padding-bottom:12px;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:14px;text-align:center;mso-border-alt:none;word-break:keep-all;color: #ffffff;">
+                                                                                <span style="padding-left:18px;padding-right:18px;font-size:14px;display:inline-block;letter-spacing:normal;">
+                                                                                    <span style="word-break: break-word; line-height: 24px;">{{portfolioLabel}}</span>
+                                                                                </span>
+                                                                            </a>
+                                                                        </td>
+                                                                        <!-- Left (in RTL): LinkedIn -->
+                                                                        <td align="center" valign="middle">
+                                                                            <a href="{{linkedinUrl}}" target="_blank" style="text-decoration:none;display:inline-block;background: rgba(255,255,255,0.18);border-radius:8px;width:auto;border:1px solid rgba(255,255,255,0.28);padding:12px 18px;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:14px;font-weight:700;text-align:center;word-break:keep-all;color:#ffffff;">
+                                                                                {{linkedinLabel}}
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
                                                             </td>
                                                         </tr>
                                                     </table>

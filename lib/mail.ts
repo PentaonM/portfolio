@@ -85,6 +85,16 @@ export function compileWelcomeTemplate(
   const cvLabel =
     safeLocale === "he" ? "להורדת קורות החיים (PDF)" : "Download CV (PDF)";
 
+  const portfolioLabel =
+    safeLocale === "he"
+      ? "קישור לפורטפוליו שלי"
+      : emailTranslations.cta || "Explore my portfolio";
+
+  const linkedinLabel =
+    safeLocale === "he" ? "פרופיל לינקדאין" : "LinkedIn profile";
+
+  const linkedinUrl = "https://il.linkedin.com/in/fentahun-modawo-3a23a822b";
+
   const dir = safeLocale === "he" ? "rtl" : "ltr";
   const textAlign = safeLocale === "he" ? "right" : "left";
 
@@ -104,32 +114,12 @@ export function compileWelcomeTemplate(
     message:
       emailTranslations.message ||
       "I've received your message and will get back to you within 24 hours.",
-    cta: emailTranslations.cta || "Explore My Portfolio",
-    // Force your deployed base URL (translations can still control the label).
-    ctaUrl: url,
-    cvButton: `
-      <div style="margin-top: 14px;">
-        <a href="${cvUrl}" target="_blank" style="text-decoration:none;display:inline-block;background: rgba(255,255,255,0.18);border-radius:8px;width:auto;border:1px solid rgba(255,255,255,0.28);padding:12px 24px;font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:14px;font-weight:600;text-align:center;word-break:keep-all;color:#ffffff;">
-          ${cvLabel}
-        </a>
-      </div>
-    `.trim(),
-    "footer.title":
-      emailTranslations.footer?.title ||
-      "Let's Build Something Amazing Together",
-    "footer.subtitle":
-      emailTranslations.footer?.subtitle ||
-      "Ready to bring your ideas to life?",
-    "footer.social": emailTranslations.footer?.social || "Follow Me",
-    "footer.unsubscribe":
-      emailTranslations.footer?.unsubscribe ||
-      "Changed your mind? You can unsubscribe at any time.",
-    "signature.name": emailTranslations.signature?.name || "Fentahun Modawo",
-    "signature.title":
-      emailTranslations.signature?.title ||
-      "Full Stack Developer & Creative Designer",
-    "signature.location":
-      emailTranslations.signature?.location || "Jerusalem, Israel",
+    cvUrl,
+    cvLabel,
+    portfolioUrl: url,
+    portfolioLabel,
+    linkedinUrl,
+    linkedinLabel,
   };
 
   const htmlBody = welcomeTemplate.replace(/{{\s*([^}]+)\s*}}/g, (_m, key) => {
@@ -150,7 +140,7 @@ export function compileAdminSubmissionTemplate(input: {
   message: string;
 }) {
   const baseUrl = normalizeBaseUrl(
-    input.baseUrl ?? process.env.NEXT_PUBLIC_SITE_URL ?? SITE_URL_FALLBACK,
+    input.baseUrl ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://fentahunmodawo.com",
   );
   const safeLocale = input.locale === "he" ? "he" : "en";
   const profileImageUrl = `${baseUrl}/profile-v2-3.png`;
