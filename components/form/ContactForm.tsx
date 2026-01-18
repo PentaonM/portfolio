@@ -66,7 +66,7 @@ const ContactForm = ({
   ) => {
     // Perform any additional actions before or after submitting data
     try {
-      const result = await fetch(`${locale}/api/form-submission`, {
+      const result = await fetch(`/${locale}/api/form-submission`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

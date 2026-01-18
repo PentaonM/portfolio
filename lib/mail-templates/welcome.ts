@@ -253,6 +253,7 @@ export const welcomeTemplate = `
                                                                             <span style="word-break: break-word; line-height: 32px;">{{cta}}</span>
                                                                         </span>
                                                                     </a>
+                                                                    {{cvButton}}
                                                                 </div>
                                                             </td>
                                                         </tr>

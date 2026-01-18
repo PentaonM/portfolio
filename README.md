@@ -38,7 +38,7 @@ npm install
 
 ```bash
 # Public site URL used in emails and assets
-NEXT_PUBLIC_SITE_URL=https://fentahunmodawo.com
+NEXT_PUBLIC_SITE_URL=https://portfolio-lime-ten-w11xgq4wcc.vercel.app
 
 # SMTP credentials (required for contact workflow)
 MAIN_SMTP_EMAIL=your-admin@example.com

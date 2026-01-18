@@ -65,7 +65,7 @@ export default function Home({
         <RecentProjects locale={locale} />
       </section>
 
-      {/* <section className="section-spacing py-20" id="testimonials">
+      <section className="section-spacing py-20" id="testimonials">
         <TestimonialSection
           locale={locale}
           testimonialData={testimonialData}
@@ -73,7 +73,7 @@ export default function Home({
             testimonialSectionTranslationsData
           }
         />
-      </section> */}
+      </section>
 
       <section className="container pt-16" id="contact">
         <ContactSection

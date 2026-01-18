@@ -1,8 +1,11 @@
 // lib/server/sendMail.ts
 "use server";
 
-import { sendMail, compileWelcomeTemplate } from "@/lib/mail";
-import { getTranslations } from "next-intl/server";
+import {
+  sendMail,
+  compileWelcomeTemplate,
+  compileAdminSubmissionTemplate,
+} from "@/lib/mail";
 
 export async function sendEmail(data: {
   firstName: string;
@@ -12,69 +15,95 @@ export async function sendEmail(data: {
   phoneNumber?: unknown;
   locale?: string;
 }) {
-  // Get SMTP settings for user email from environment variables
-  const userEmail = process.env.SECONDARY_SMTP_EMAIL;
-  const userPassword = process.env.SECONDARY_SMTP_PASSWORD;
+  const locale = data.locale === "he" ? "he" : "en";
 
-  // Get SMTP settings for admin email from environment variables
+  // SMTP settings
+  const autoReplyEmail = process.env.SECONDARY_SMTP_EMAIL;
+  const autoReplyPassword = process.env.SECONDARY_SMTP_PASSWORD;
+
   const adminEmail = process.env.MAIN_SMTP_EMAIL;
   const adminPassword = process.env.MAIN_SMTP_PASSWORD;
 
-  // Check if SMTP settings are defined
-  if (!userEmail || !userPassword || !adminEmail || !adminPassword) {
+  if (
+    !autoReplyEmail ||
+    !autoReplyPassword ||
+    !adminEmail ||
+    !adminPassword
+  ) {
     throw new Error("SMTP settings are not properly configured");
   }
-
-  // Get translations for the specified locale
-  const translations = await getTranslations({ locale: data.locale || "en" });
 
   // Import the translation files directly to avoid nested key issues
   const enTranslations = await import("@/dictionaries/en.json");
   const heTranslations = await import("@/dictionaries/he.json");
 
   const localeTranslations =
-    data.locale === "he" ? heTranslations.default : enTranslations.default;
+    locale === "he" ? heTranslations.default : enTranslations.default;
   const emailTranslations = {
     EmailTemplate: localeTranslations.EmailTemplate,
   };
 
-  // SMTP settings for user email
-  const userSmtpConfig = {
-    email: userEmail,
-    password: userPassword,
+  const autoReplySmtpConfig = {
+    email: autoReplyEmail,
+    password: autoReplyPassword,
   };
 
-  // SMTP settings for admin email
   const adminSmtpConfig = {
     email: adminEmail,
     password: adminPassword,
   };
 
-  // Send email to the admin
+  const fullName = `${data.firstName} ${data.lastName}`.trim();
+  const siteUrl = `https://portfolio-lime-ten-w11xgq4wcc.vercel.app/${locale}`;
+  const phoneText =
+    typeof data.phoneNumber === "string"
+      ? data.phoneNumber.trim()
+      : typeof data.phoneNumber === "number"
+        ? String(data.phoneNumber)
+        : "";
+
+  // 1) Admin notification (includes the actual message content)
   await sendMail({
-    to: userSmtpConfig.email,
-    name: "Full stack admin",
-    subject: `New Job Application from ${data.firstName} ${data.lastName} has been submitted`,
-    body: compileWelcomeTemplate(
-      "Full stack admin",
-      "https://www.google.com/",
-      data.locale || "en",
-      emailTranslations,
-    ),
-    smtpConfig: userSmtpConfig,
+    to: adminEmail,
+    name: "Admin",
+    subject: `New message (${locale}) from ${fullName}`,
+    body: compileAdminSubmissionTemplate({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      message: data.message,
+      locale,
+      baseUrl: "https://portfolio-lime-ten-w11xgq4wcc.vercel.app",
+    }),
+    replyTo: data.email,
+    text: `New message from ${fullName}
+First name: ${data.firstName}
+Last name: ${data.lastName}
+Email: ${data.email}
+Phone: ${phoneText || "—"}
+Locale: ${locale}
+
+Message:
+${data.message}
+`,
+    smtpConfig: adminSmtpConfig,
   });
 
-  // Send email to the user
+  // 2) Auto-reply to user (locale-matched)
   await sendMail({
     to: data.email,
-    name: `${data.firstName} ${data.lastName}`,
+    name: fullName,
     subject: emailTranslations.EmailTemplate.subject,
     body: compileWelcomeTemplate(
-      `${data.firstName} ${data.lastName}`,
-      "https://fentahunmodawo.com",
-      data.locale || "en",
+      fullName,
+      siteUrl,
+      locale,
       emailTranslations,
     ),
-    smtpConfig: adminSmtpConfig,
+    text: `Hi ${fullName},\n\nThanks for reaching out. I received your message and will get back to you within 24 hours.\n\nPortfolio: ${siteUrl}\nCV: https://portfolio-lime-ten-w11xgq4wcc.vercel.app/cv/FULL-STACK-WEB-DEVELOPMENT-${
+      locale === "he" ? "HEBREW" : "ENGLISH"
+    }-CV.pdf`,
+    smtpConfig: autoReplySmtpConfig,
   });
 }
