@@ -201,11 +201,11 @@
   },
 
   "EmailTemplate": {
-    "subject": "Welcome to Fentahun's Portfolio - Thank You for Reaching Out!",
+    "subject": "Thank you for your interest | Fentahun Modawo Full Stack Web Developer from Jerusalem",
     "greeting": "Hi {{name}}",
-    "title": "Thank you for your interest!",
-    "subtitle": "I'm excited to connect with you and discuss how we can work together.",
-    "message": "I've received your message and will get back to you within 24 hours. In the meantime, feel free to explore my portfolio and check out my latest projects.",
+    "title": "Thank you for your interest and engagement",
+    "subtitle": "The message has been received successfully, and I will get back to you as soon as possible – usually within 24 hours.",
+    "message": "I'm excited to connect with you and discuss how we can work together. In the meantime, feel free to explore my portfolio and check out my latest projects.",
     "cta": "Explore My Portfolio",
     "ctaUrl": "https://fentahunmodawo.com",
     "footer": {
