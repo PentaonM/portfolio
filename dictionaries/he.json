@@ -164,14 +164,20 @@
 
       "formValidation": {
         "firstNameRequired": "שדה שם פרטי נדרש",
-        "firstNameInvalid": "שם פרטי לא חוקי",
+        "firstNameTooShort": "שם פרטי חייב להכיל לפחות 2 תווים",
+        "firstNameInvalid": "שם פרטי לא תקין",
         "lastNameRequired": "שדה שם משפחה נדרש",
-        "lastNameInvalid": "שם משפחה לא חוקי",
+        "lastNameTooShort": "שם משפחה חייב להכיל לפחות 2 תווים",
+        "lastNameTooLong": "שם משפחה יכול להכיל עד 35 תווים",
+        "lastNameInvalid": "שם משפחה לא תקין",
         "emailRequired": "שדה דוא\"ל נדרש",
-        "emailInvalid": "כתובת דוא\"ל לא חוקית",
-        "phoneNumberInvalid": "מספר טלפון לא חוקי",
+        "emailInvalid": "כתובת דוא\"ל לא תקינה",
+        "phoneNumberInvalid": "מספר טלפון לא תקין",
         "messageRequired": "שדה הודעה נדרש",
-        "messageInvalid": "תווים לא חוקיים בהודעה"
+        "messageTooShort": "הודעה חייבת להכיל לפחות 10 תווים",
+        "messageTooLong": "הודעה יכולה להכיל עד 1000 תווים",
+        "messageDisallowed": "ההודעה מכילה תוכן אסור (HTML/סקריפטים/דפוסי קוד)",
+        "messageInvalid": "תווים לא תקינים בהודעה"
       },
 
       "toastMessages": {

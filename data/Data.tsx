@@ -311,7 +311,7 @@ export const useWorkExperienceData = () => {
     },
     {
       id: 2,
-      timespan: "2023 - 2025",
+      timespan: "2023 - 2026",
       position: translations("position2"),
       company: translations("company2"),
       img: "/malam-team.jpg",

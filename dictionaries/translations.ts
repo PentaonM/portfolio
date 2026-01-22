@@ -78,12 +78,17 @@ export const useSectionsTranslations = () => {
     firstNameRequired: contactFormTranslations(
       "formValidation.firstNameRequired",
     ),
+    firstNameTooShort: contactFormTranslations(
+      "formValidation.firstNameTooShort",
+    ),
     firstNameInvalid: contactFormTranslations(
       "formValidation.firstNameInvalid",
     ),
     lastNameRequired: contactFormTranslations(
       "formValidation.lastNameRequired",
     ),
+    lastNameTooShort: contactFormTranslations("formValidation.lastNameTooShort"),
+    lastNameTooLong: contactFormTranslations("formValidation.lastNameTooLong"),
     lastNameInvalid: contactFormTranslations("formValidation.lastNameInvalid"),
     emailRequired: contactFormTranslations("formValidation.emailRequired"),
     emailInvalid: contactFormTranslations("formValidation.emailInvalid"),
@@ -91,6 +96,11 @@ export const useSectionsTranslations = () => {
       "formValidation.phoneNumberInvalid",
     ),
     messageRequired: contactFormTranslations("formValidation.messageRequired"),
+    messageTooShort: contactFormTranslations("formValidation.messageTooShort"),
+    messageTooLong: contactFormTranslations("formValidation.messageTooLong"),
+    messageDisallowed: contactFormTranslations(
+      "formValidation.messageDisallowed",
+    ),
     messageInvalid: contactFormTranslations("formValidation.messageInvalid"),
 
     successToastTitle: contactFormTranslations(

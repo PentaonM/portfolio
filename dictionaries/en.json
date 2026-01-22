@@ -166,13 +166,19 @@
 
       "formValidation": {
         "firstNameRequired": "First name is required",
+        "firstNameTooShort": "First name must be at least 2 characters",
         "firstNameInvalid": "Invalid first name",
         "lastNameRequired": "Last name is required",
+        "lastNameTooShort": "Last name must be at least 2 characters",
+        "lastNameTooLong": "Last name must be at most 35 characters",
         "lastNameInvalid": "Invalid last name",
         "emailRequired": "Email is required",
         "emailInvalid": "Invalid email address",
         "phoneNumberInvalid": "Invalid phone number",
         "messageRequired": "Message is required",
+        "messageTooShort": "Message must be at least 10 characters",
+        "messageTooLong": "Message must be at most 1000 characters",
+        "messageDisallowed": "Message contains disallowed content (HTML, scripts, or code-like patterns)",
         "messageInvalid": "Invalid characters in message"
       },
 

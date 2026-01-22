@@ -24,6 +24,16 @@ const ContactForm = ({
     [key: string]: string;
   };
 }) => {
+  const requiredText = locale === "he" ? "שדה חובה" : "required";
+  const RequiredAsterisk = () => (
+    <>
+      <span aria-hidden="true" className="text-red-500">
+        *
+      </span>
+      <span className="sr-only"> {requiredText}</span>
+    </>
+  );
+
   const {
     register,
     handleSubmit,
@@ -31,6 +41,8 @@ const ContactForm = ({
     reset,
   } = useForm<contactFormSchemaType>({
     resolver: zodResolver(getContactFormSchema(contactFormTranslationsData)),
+    mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
   const showToast = (
@@ -133,36 +145,57 @@ const ContactForm = ({
         {contactFormTranslationsData["subTitle"]}
       </p>
 
-      <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
+      <form className="my-8" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
           <LabelInputContainer className={`${locale === "en" ? "ltr" : "rtl"}`}>
             <Label htmlFor="firstName">
-              {contactFormTranslationsData["firstName"]}
+              {contactFormTranslationsData["firstName"]} <RequiredAsterisk />
             </Label>
             <Input
               id="firstName"
               placeholder={contactFormTranslationsData["firstNamePlaceholder"]}
               type="text"
+              autoComplete="given-name"
+              aria-required="true"
+              aria-invalid={Boolean(errors.firstName)}
+              aria-describedby={errors.firstName ? "firstName-error" : undefined}
+              className={errors.firstName ? "ring-2 ring-red-500" : undefined}
               {...register("firstName")}
             />
             {errors.firstName && (
-              <p className="text-sm text-red-500">
+              <p
+                id="firstName-error"
+                role="alert"
+                aria-live="polite"
+                className="text-sm text-red-500"
+              >
                 {String(errors.firstName.message)}
               </p>
             )}
           </LabelInputContainer>
           <LabelInputContainer className={`${locale === "en" ? "ltr" : "rtl"}`}>
             <Label htmlFor="lastName">
-              {contactFormTranslationsData["lastName"]}
+              {contactFormTranslationsData["lastName"]} <RequiredAsterisk />
             </Label>
             <Input
               id="lastName"
               placeholder={contactFormTranslationsData["lastNamePlaceholder"]}
               type="text"
+              autoComplete="family-name"
+              maxLength={35}
+              aria-required="true"
+              aria-invalid={Boolean(errors.lastName)}
+              aria-describedby={errors.lastName ? "lastName-error" : undefined}
+              className={errors.lastName ? "ring-2 ring-red-500" : undefined}
               {...register("lastName")}
             />
             {errors.lastName && (
-              <p className="text-sm text-red-500">
+              <p
+                id="lastName-error"
+                role="alert"
+                aria-live="polite"
+                className="text-sm text-red-500"
+              >
                 {String(errors.lastName.message)}
               </p>
             )}
@@ -171,15 +204,27 @@ const ContactForm = ({
         <LabelInputContainer
           className={`${locale === "en" ? "ltr" : "rtl"} mb-4`}
         >
-          <Label htmlFor="email">{contactFormTranslationsData["email"]}</Label>
+          <Label htmlFor="email">
+            {contactFormTranslationsData["email"]} <RequiredAsterisk />
+          </Label>
           <Input
             id="email"
             placeholder="your.email@example.org"
             type="email"
+            autoComplete="email"
+            aria-required="true"
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "email-error" : undefined}
+            className={errors.email ? "ring-2 ring-red-500" : undefined}
             {...register("email")}
           />
           {errors.email && (
-            <p className="text-sm text-red-500">
+            <p
+              id="email-error"
+              role="alert"
+              aria-live="polite"
+              className="text-sm text-red-500"
+            >
               {String(errors.email.message)}
             </p>
           )}
@@ -194,11 +239,23 @@ const ContactForm = ({
           <Input
             id="phoneNumber"
             placeholder={contactFormTranslationsData["phoneNumberPlaceholder"]}
-            type="number"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            aria-invalid={Boolean(errors.phoneNumber)}
+            aria-describedby={
+              errors.phoneNumber ? "phoneNumber-error" : undefined
+            }
+            className={errors.phoneNumber ? "ring-2 ring-red-500" : undefined}
             {...register("phoneNumber")}
           />
           {errors.phoneNumber && (
-            <p className="text-sm text-red-500">
+            <p
+              id="phoneNumber-error"
+              role="alert"
+              aria-live="polite"
+              className="text-sm text-red-500"
+            >
               {String(errors.phoneNumber.message)}
             </p>
           )}
@@ -208,17 +265,31 @@ const ContactForm = ({
           className={`${locale === "en" ? "ltr" : "rtl"} mb-4`}
         >
           <Label htmlFor="message">
-            {contactFormTranslationsData["message"]}
+            {contactFormTranslationsData["message"]} <RequiredAsterisk />
           </Label>
           <textarea
             id="message"
             rows={4}
             placeholder={contactFormTranslationsData["messagesPlaceholder"]}
-            className="block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            maxLength={1000}
+            aria-required="true"
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? "message-error" : undefined}
+            className={cn(
+              "block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+              errors.message
+                ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+                : undefined,
+            )}
             {...register("message")}
           ></textarea>
           {errors.message && (
-            <p className="text-sm text-red-500">
+            <p
+              id="message-error"
+              role="alert"
+              aria-live="polite"
+              className="text-sm text-red-500"
+            >
               {String(errors.message.message)}
             </p>
           )}
