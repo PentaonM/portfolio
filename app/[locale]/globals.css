@@ -304,3 +304,18 @@ body {
   justify-content: space-between;
   column-gap: 210px;
 }
+
+/* ----- Enable accessibility widget: always on left ----- */
+body #enable-toolbar-trigger {
+  left: 20px !important;
+  right: auto !important;
+}
+
+body.trigger-position-right #enable-toolbar-trigger,
+body.trigger-position-center #enable-toolbar-trigger,
+.trigger-position-right #enable-toolbar-trigger,
+.trigger-position-center #enable-toolbar-trigger {
+  left: 20px !important;
+  right: auto !important;
+  transform: translateY(-100%) scale(1.3) !important;
+}

@@ -9,6 +9,7 @@ import type { Metadata, Viewport } from "next";
 import { setRequestLocale } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import EnableAccessibility from "@/components/enable/EnableAccessibility";
 
 const CustomSentryFeedbackButton = dynamic(
   () => import("@/components/ui/custom-sentry-feedback-btn"),
@@ -122,6 +123,11 @@ export default async function LocaleLayout({
           {children}
           <CustomSentryFeedbackButton />
         </ThemeProvider>
+
+        <EnableAccessibility
+          locale={locale}
+          scriptSrc={`https://cdn.enable.co.il/licenses/${process.env.ENABLE_LICENSE_CODE}-78912/init.js`}
+        />
       </body>
     </html>
   );
