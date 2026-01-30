@@ -10,6 +10,7 @@ import { setRequestLocale } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import EnableAccessibility from "@/components/enable/EnableAccessibility";
+import { Analytics } from "@vercel/analytics/next";
 
 const CustomSentryFeedbackButton = dynamic(
   () => import("@/components/ui/custom-sentry-feedback-btn"),
@@ -122,6 +123,7 @@ export default async function LocaleLayout({
           <SpotlightEffect />
           {children}
           <CustomSentryFeedbackButton />
+          <Analytics />
         </ThemeProvider>
 
         <EnableAccessibility
