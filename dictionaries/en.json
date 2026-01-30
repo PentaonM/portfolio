@@ -198,13 +198,13 @@
 
   "Manifest": {
     "name": "Fentahun modawo's Portfolio",
-    "description": "Frontend-focused Full Stack Web Developer with 3+ years building production web apps with React, Next.js, Angular, and .NET Core—from Figma to deployment."
+    "description": "Frontend-focused Full Stack Web Developer with 3+ years building production web apps with React, Next.js, Angular, and .NET Core-from Figma to deployment."
   },
 
   "SEO": {
     "siteName": "Fentahun Modawo",
     "defaultTitle": "Frontend-Focused Full Stack Web Developer",
-    "defaultDescription": "Frontend-focused Full Stack Web Developer with 3+ years building production web apps with React, Next.js, Angular, and .NET Core—from Figma to deployment.",
+    "defaultDescription": "Frontend-focused Full Stack Web Developer with 3+ years building production web apps with React, Next.js, Angular, and .NET Core-from Figma to deployment.",
     "ogImageAlt": "Fentahun Modawo - Frontend-focused Full Stack Web Developer"
   },
 
