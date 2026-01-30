@@ -14,6 +14,17 @@ export const pathnames: Pathnames<typeof locales> = {
 export const localePrefix: LocalePrefix<typeof locales> = "always";
 
 export const port = process.env.PORT || 3000;
-export const host = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : `http://localhost:${port}`;
+
+function normalizeAbsoluteUrl(url?: string) {
+  if (!url) return undefined;
+  const trimmed = url.trim().replace(/^"+|"+$/g, "");
+  if (!trimmed) return undefined;
+  // Remove trailing slash for consistent concatenation.
+  return trimmed.replace(/\/+$/g, "");
+}
+
+export const host =
+  normalizeAbsoluteUrl(process.env.NEXT_PUBLIC_SITE_URL) ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : `http://localhost:${port}`);

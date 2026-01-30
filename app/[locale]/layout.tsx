@@ -2,12 +2,14 @@ import "./globals.css";
 import dynamic from "next/dynamic";
 import { hasLocale } from "next-intl";
 import { Inter } from "next/font/google";
+import { host, locales } from "@/config";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import CustomCursor from "@/lib/CustomCursor";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MicrosoftClarity from "@/components/clarity/MicrosoftClarity";
@@ -21,69 +23,90 @@ const CustomSentryFeedbackButton = dynamic(
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Fentahun's Portfolio",
-  description: "Modern and minimalist portfolio",
-  // generator: 'Next.js',
-  // applicationName: 'Next.js',
-  // referrer: 'origin-when-cross-origin',
-  // keywords: ['Next.js', 'React', 'JavaScript'],
-  // authors: [{ name: 'Seb' }, { name: 'Josh', url: 'https://nextjs.org' }],
-  // creator: 'Fentahun Modawo',
-  // publisher: 'Fentahun Modawo',
-  // formatDetection: {
-  //   email: false,
-  //   address: false,
-  //   telephone: false,
-  // },
+function getOgLocale(locale: string) {
+  if (locale === "he") return "he_IL";
+  return "en_US";
+}
 
-  // //OpenGraph
-  // openGraph: {
-  //   title: "My Next.js App",
-  //   description: "This is a description of my Next.js app.",
-  //   url: "https://example.com/",
-  //   siteName: 'Next.js',
-  //   locale: 'en_US',
-  //   type: "website",
-  //   images: [
-  //     {
-  //       url: "https://example.com/og-image.jpg",
-  //       width: 800,
-  //       height: 600,
-  //       alt: "Og Image Alt",
-  //     },
-  //   ],
-  // },
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "Manifest" });
+  const siteName = t("name");
+  const description = t("description");
 
-  // //Twitter openGraph
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: 'Next.js',
-  //   description: 'The React Framework for the Web',
-  //   siteId: '1467726470533754880',
-  //   creator: 'Fentahun Modawo',
-  //   creatorId: '1467726470533754880',
-  //   images: ['https://nextjs.org/og.png'],
-  // },
+  const baseUrl = new URL(host);
+  const ogImage = {
+    url: "/portfolio-main-1.jpg",
+    width: 1296,
+    height: 650,
+    alt: siteName,
+  };
 
-  // //Robots
-  // robots: {
-  //   index: false,
-  //   follow: true,
-  //   nocache: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: false,
-  //     noimageindex: true,
-  //     "max-video-preview": -1,
-  //     "max-image-preview": "large",
-  //     "max-snippet": -1,
-  //   },
-  // },
-
-  // //Manifest
-  // manifest: 'https://nextjs.org/manifest.json',
-};
+  return {
+    metadataBase: baseUrl,
+    title: {
+      default: siteName,
+      template: `%s | ${siteName}`,
+    },
+    description,
+    applicationName: siteName,
+    keywords: [
+      "Fentahun Modawo",
+      "Full Stack Web Developer",
+      "Portfolio",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Jerusalem",
+      "Israel",
+    ],
+    authors: [{ name: "Fentahun Modawo", url: baseUrl }],
+    creator: "Fentahun Modawo",
+    publisher: "Fentahun Modawo",
+    icons: {
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
+    manifest: `/${locale}/manifest.webmanifest`,
+    openGraph: {
+      title: siteName,
+      description,
+      url: `/${locale}`,
+      siteName,
+      locale: getOgLocale(locale),
+      alternateLocale: locales
+        .filter((l) => l !== locale)
+        .map((l) => getOgLocale(l)),
+      type: "website",
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteName,
+      description,
+      images: [ogImage.url],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
