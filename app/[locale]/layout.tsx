@@ -6,11 +6,12 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import CustomCursor from "@/lib/CustomCursor";
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { setRequestLocale } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
+import MicrosoftClarity from "@/components/clarity/MicrosoftClarity";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import EnableAccessibility from "@/components/enable/EnableAccessibility";
-import { Analytics } from "@vercel/analytics/next";
 
 const CustomSentryFeedbackButton = dynamic(
   () => import("@/components/ui/custom-sentry-feedback-btn"),
@@ -104,6 +105,10 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+  const shouldLoadClarity =
+    Boolean(clarityProjectId) && process.env.NODE_ENV === "production";
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -113,6 +118,11 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={`${inter.className} relative`}>
+        <MicrosoftClarity
+          enabled={shouldLoadClarity}
+          projectId={clarityProjectId}
+          locale={locale}
+        />
         <CustomCursor />
         <ThemeProvider
           attribute="class"
