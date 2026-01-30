@@ -9,6 +9,7 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { setRequestLocale } from "next-intl/server";
 import SpotlightEffect from "@/components/SpotlightEffect";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import MicrosoftClarity from "@/components/clarity/MicrosoftClarity";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import EnableAccessibility from "@/components/enable/EnableAccessibility";
@@ -134,6 +135,7 @@ export default async function LocaleLayout({
           {children}
           <CustomSentryFeedbackButton />
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
 
         <EnableAccessibility
