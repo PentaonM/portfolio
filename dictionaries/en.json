@@ -200,7 +200,14 @@
     "name": "Fentahun modawo's Portfolio",
     "description": "This is my portfolio, i hope you like it."
   },
-  
+
+  "SEO": {
+    "siteName": "Fentahun Modawo",
+    "defaultTitle": "Frontend-Focused Full Stack Web Developer",
+    "defaultDescription": "Frontend-focused Full Stack Web Developer with 3+ years building production web apps with React, Next.js, Angular, and .NET Core—from Figma to deployment.",
+    "ogImageAlt": "Fentahun Modawo - Frontend-focused Full Stack Web Developer"
+  },
+
   "NotFoundPage": {
     "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
     "title": "Page not found"

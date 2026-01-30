@@ -33,22 +33,26 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "Manifest" });
-  const siteName = t("name");
-  const description = t("description");
+  const seo = await getTranslations({ locale, namespace: "SEO" });
+  const siteName = seo("siteName");
+  const defaultTitle = seo("defaultTitle");
+  const description = seo("defaultDescription");
+  const ogImageAlt = seo("ogImageAlt");
 
   const baseUrl = new URL(host);
   const ogImage = {
-    url: "/portfolio-main-1.jpg",
-    width: 1296,
-    height: 650,
-    alt: siteName,
+    url: "/profile-v2-3.png",
+    width: 410,
+    height: 557,
+    alt: ogImageAlt,
   };
+
+  const title = `${siteName} | ${defaultTitle}`;
 
   return {
     metadataBase: baseUrl,
     title: {
-      default: siteName,
+      default: title,
       template: `%s | ${siteName}`,
     },
     description,
@@ -77,7 +81,7 @@ export async function generateMetadata({
     },
     manifest: `/${locale}/manifest.webmanifest`,
     openGraph: {
-      title: siteName,
+      title,
       description,
       url: `/${locale}`,
       siteName,
@@ -90,7 +94,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: siteName,
+      title,
       description,
       images: [ogImage.url],
     },
