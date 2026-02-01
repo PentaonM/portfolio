@@ -40,15 +40,31 @@ const ContactHeroLink: React.FC<ContactHeroLinkProps> = ({
       buttonText={buttonText}
       displayLeftIcon={true}
       leftIcon={
-        <Image
-          src={rightIconSrc}
-          width={24}
-          style={{ height: "auto", transform: "scaleX(-1)" }}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          aria-hidden
-        />
+        <>
+          {/* Desktop: use the configured right icon */}
+          <Image
+            className="block md:hidden"
+            src={leftIconSrc}
+            width={24}
+            style={{ height: "auto" }}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden
+          />
+
+          {/* Tablet/Mobile: right icon matches the left icon */}
+          <Image
+            className="hidden md:block"
+            src={rightIconSrc}
+            width={24}
+            style={{ height: "auto", transform: "scaleX(-1)" }}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden
+          />
+        </>
       }
       displayRightIcon={true}
       rightIcon={
